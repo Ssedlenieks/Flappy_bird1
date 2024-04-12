@@ -36,5 +36,12 @@ namespace Flappy_bird1
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            GameStart gameStart = new GameStart();
+            gameStart.ShowDialog();
+        }
     }
 }

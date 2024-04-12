@@ -30,6 +30,7 @@
         {
             this.GOver_Text = new System.Windows.Forms.Label();
             this.resetbutotn = new System.Windows.Forms.Button();
+            this.Return_to_ms = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // GOver_Text
@@ -49,13 +50,25 @@
             // 
             this.resetbutotn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.resetbutotn.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.resetbutotn.Location = new System.Drawing.Point(247, 231);
+            this.resetbutotn.Location = new System.Drawing.Point(158, 235);
             this.resetbutotn.Name = "resetbutotn";
-            this.resetbutotn.Size = new System.Drawing.Size(128, 92);
+            this.resetbutotn.Size = new System.Drawing.Size(163, 92);
             this.resetbutotn.TabIndex = 2;
-            this.resetbutotn.Text = "Reset ?";
+            this.resetbutotn.Text = "Reset";
             this.resetbutotn.UseVisualStyleBackColor = true;
             this.resetbutotn.Click += new System.EventHandler(this.resetgame);
+            // 
+            // Return_to_ms
+            // 
+            this.Return_to_ms.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Return_to_ms.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Return_to_ms.Location = new System.Drawing.Point(348, 235);
+            this.Return_to_ms.Name = "Return_to_ms";
+            this.Return_to_ms.Size = new System.Drawing.Size(162, 92);
+            this.Return_to_ms.TabIndex = 3;
+            this.Return_to_ms.Text = "Return to main screen";
+            this.Return_to_ms.UseVisualStyleBackColor = true;
+            this.Return_to_ms.Click += new System.EventHandler(this.button1_Click);
             // 
             // GameOver
             // 
@@ -63,6 +76,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(653, 450);
+            this.Controls.Add(this.Return_to_ms);
             this.Controls.Add(this.resetbutotn);
             this.Controls.Add(this.GOver_Text);
             this.ForeColor = System.Drawing.SystemColors.ActiveBorder;
@@ -79,5 +93,6 @@
 
         private System.Windows.Forms.Label GOver_Text;
         private System.Windows.Forms.Button resetbutotn;
+        private System.Windows.Forms.Button Return_to_ms;
     }
 }

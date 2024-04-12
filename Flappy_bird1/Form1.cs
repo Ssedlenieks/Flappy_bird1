@@ -14,7 +14,7 @@ namespace Flappy_bird1
     {
         int pipeSpeed = 8;
         int Gravity = 10;
-        int Score = 0;
+        public int Score = 0;
         bool gameOVER = false;
 
 
@@ -36,6 +36,7 @@ namespace Flappy_bird1
 
         private void label1_Click(object sender, EventArgs e)
         {
+
 
         }
 
@@ -81,7 +82,8 @@ namespace Flappy_bird1
             {
                 Pipe_upper.Left = 850;
                 Score++;
-                ScoreText.Text = Score.ToString(); 
+                ScoreText.Text = Score.ToString();
+                
             }
 
             for (int i = 0; i < Score; i+=1  )
@@ -138,5 +140,6 @@ namespace Flappy_bird1
 
             
         }
+       
     }
 }

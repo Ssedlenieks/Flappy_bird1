@@ -38,7 +38,7 @@ namespace Flappy_bird1
 
         private void LoadScore(object sender, EventArgs e)
         {
-            ScoreTable scoretable = new ScoreTable();
+            ScoreTable scoretable = new ScoreTable(); 
 
             scoretable.Show();
             
@@ -55,6 +55,13 @@ namespace Flappy_bird1
 
             skinWindow.Show();
             this.Hide();
+        }
+
+        private void RegisterButton_Click(object sender, EventArgs e)
+        {
+            Registration_Window registration_window = new Registration_Window();
+            registration_window.Show();
+            
         }
     }
 }
