@@ -100,10 +100,10 @@
             // 
             this.StartGameTab.Controls.Add(this.StartScreen);
             this.StartGameTab.Controls.Add(this.scoretab);
-            this.StartGameTab.Location = new System.Drawing.Point(0, 0);
+            this.StartGameTab.Location = new System.Drawing.Point(-7, 0);
             this.StartGameTab.Name = "StartGameTab";
             this.StartGameTab.SelectedIndex = 0;
-            this.StartGameTab.Size = new System.Drawing.Size(333, 575);
+            this.StartGameTab.Size = new System.Drawing.Size(340, 575);
             this.StartGameTab.TabIndex = 7;
             // 
             // StartScreen
@@ -118,7 +118,7 @@
             this.StartScreen.Location = new System.Drawing.Point(4, 25);
             this.StartScreen.Name = "StartScreen";
             this.StartScreen.Padding = new System.Windows.Forms.Padding(3);
-            this.StartScreen.Size = new System.Drawing.Size(325, 546);
+            this.StartScreen.Size = new System.Drawing.Size(332, 546);
             this.StartScreen.TabIndex = 0;
             this.StartScreen.Text = "Game Menu";
             // 
@@ -137,7 +137,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
-            this.ClientSize = new System.Drawing.Size(327, 568);
+            this.ClientSize = new System.Drawing.Size(327, 566);
             this.Controls.Add(this.StartGameTab);
             this.Name = "GameStart";
             this.Text = "Game Start";
