@@ -17,11 +17,7 @@ namespace Flappy_bird1
                 this.ID = ID;
                 ID++;
             }
-
             public int ID { get; set; }
-            public override string ToString()
-            {
-            }
         }
         
         public ScoreTable()

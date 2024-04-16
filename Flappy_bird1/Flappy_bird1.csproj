@@ -103,10 +103,7 @@
     <Compile Include="ScoreTable.Designer.cs">
       <DependentUpon>ScoreTable.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="ScoreTableLoad.cs" />
-=======
->>>>>>> b31d1b8f12da85bace5fd4bd42713036c9458714
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

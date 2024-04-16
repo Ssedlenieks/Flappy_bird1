@@ -86,8 +86,7 @@
             this.PasswordLabel.Size = new System.Drawing.Size(88, 22);
             this.PasswordLabel.TabIndex = 4;
             this.PasswordLabel.Text = "Password";
-<<<<<<< HEAD
-=======
+
             // 
             // RegistrationTab
             // 
@@ -124,13 +123,13 @@
             this.LoginTab.TabIndex = 1;
             this.LoginTab.Text = "Login";
             this.LoginTab.UseVisualStyleBackColor = true;
->>>>>>> b31d1b8f12da85bace5fd4bd42713036c9458714
+
             // 
             // Registration_Window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-<<<<<<< HEAD
+
             this.ClientSize = new System.Drawing.Size(755, 450);
             this.Controls.Add(this.PasswordLabel);
             this.Controls.Add(this.NameLabel);
@@ -140,7 +139,7 @@
             this.Name = "Registration_Window";
             this.Text = "Register your character !";
             this.Load += new System.EventHandler(this.Registration_Window_Load);
-=======
+
             this.ClientSize = new System.Drawing.Size(368, 450);
             this.Controls.Add(this.RegistrationTab);
             this.Name = "Registration_Window";
@@ -149,7 +148,6 @@
             this.RegistrationTab.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
->>>>>>> b31d1b8f12da85bace5fd4bd42713036c9458714
             this.ResumeLayout(false);
 
         }
