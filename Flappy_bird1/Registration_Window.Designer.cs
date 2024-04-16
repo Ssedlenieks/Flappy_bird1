@@ -53,7 +53,7 @@
             // 
             // CharacterNameInput
             // 
-            this.CharacterNameInput.Location = new System.Drawing.Point(175, 150);
+            this.CharacterNameInput.Location = new System.Drawing.Point(171, 73);
             this.CharacterNameInput.Name = "CharacterNameInput";
             this.CharacterNameInput.Size = new System.Drawing.Size(100, 22);
             this.CharacterNameInput.TabIndex = 1;
@@ -61,7 +61,7 @@
             // 
             // PasswordInput
             // 
-            this.PasswordInput.Location = new System.Drawing.Point(175, 98);
+            this.PasswordInput.Location = new System.Drawing.Point(171, 125);
             this.PasswordInput.Name = "PasswordInput";
             this.PasswordInput.Size = new System.Drawing.Size(100, 22);
             this.PasswordInput.TabIndex = 2;
@@ -86,7 +86,6 @@
             this.PasswordLabel.Size = new System.Drawing.Size(88, 22);
             this.PasswordLabel.TabIndex = 4;
             this.PasswordLabel.Text = "Password";
-
             // 
             // RegistrationTab
             // 
@@ -100,11 +99,8 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.CharacterNameInput);
-            this.tabPage1.Controls.Add(this.StartGameReg);
-            this.tabPage1.Controls.Add(this.NameLabel);
-            this.tabPage1.Controls.Add(this.PasswordLabel);
             this.tabPage1.Controls.Add(this.PasswordInput);
+            this.tabPage1.Controls.Add(this.CharacterNameInput);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -112,7 +108,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Registration";
             this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // LoginTab
             // 
@@ -123,24 +118,15 @@
             this.LoginTab.TabIndex = 1;
             this.LoginTab.Text = "Login";
             this.LoginTab.UseVisualStyleBackColor = true;
-
             // 
             // Registration_Window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-
-            this.ClientSize = new System.Drawing.Size(755, 450);
+            this.ClientSize = new System.Drawing.Size(368, 450);
             this.Controls.Add(this.PasswordLabel);
             this.Controls.Add(this.NameLabel);
-            this.Controls.Add(this.PasswordInput);
-            this.Controls.Add(this.CharacterNameInput);
             this.Controls.Add(this.StartGameReg);
-            this.Name = "Registration_Window";
-            this.Text = "Register your character !";
-            this.Load += new System.EventHandler(this.Registration_Window_Load);
-
-            this.ClientSize = new System.Drawing.Size(368, 450);
             this.Controls.Add(this.RegistrationTab);
             this.Name = "Registration_Window";
             this.Text = "Register your character !";
@@ -149,6 +135,7 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

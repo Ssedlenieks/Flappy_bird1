@@ -154,10 +154,7 @@ namespace Flappy_bird1
             
         }
 
-        private void label1_Click_2(object sender, EventArgs e)
-        {
 
-        }
 
     }
 

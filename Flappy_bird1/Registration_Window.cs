@@ -127,7 +127,6 @@ namespace Flappy_bird1
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
                 csv.Read();
-                csv.ReadHeader();
                 while (csv.Read())
                 {
                     string name = csv.GetField("Name");
