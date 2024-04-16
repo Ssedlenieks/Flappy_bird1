@@ -26,7 +26,7 @@ namespace Flappy_bird1
 
         private void resetgame(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             Form1 game = new Form1();
             game.ShowDialog();
             
@@ -39,7 +39,7 @@ namespace Flappy_bird1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            this.Close();
             GameStart gameStart = new GameStart();
             gameStart.ShowDialog();
         }

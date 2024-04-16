@@ -132,6 +132,7 @@ namespace Flappy_bird1
             gameOVER = false;
             GameOver gameOver = new GameOver();
             gameOver.Show();
+<<<<<<< HEAD
             this.Hide();
         }
 
@@ -149,5 +150,14 @@ namespace Flappy_bird1
         {
 
         }
+=======
+            this.Close();
+        }
+
+        private void label1_Click_2(object sender, EventArgs e)
+        {
+
+        }
+>>>>>>> b31d1b8f12da85bace5fd4bd42713036c9458714
     }
 }

@@ -32,7 +32,7 @@ namespace Flappy_bird1
             Form1 gameWindow = new Form1();
 
             gameWindow.Show();
-            this.Hide();
+            this.Close ();
 
         }
 
