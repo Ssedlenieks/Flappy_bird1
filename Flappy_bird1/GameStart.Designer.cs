@@ -50,12 +50,12 @@
             // 
             // GoToScoreButton
             // 
-            this.GoToScoreButton.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GoToScoreButton.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GoToScoreButton.Location = new System.Drawing.Point(34, 431);
             this.GoToScoreButton.Name = "GoToScoreButton";
             this.GoToScoreButton.Size = new System.Drawing.Size(274, 87);
             this.GoToScoreButton.TabIndex = 2;
-            this.GoToScoreButton.Text = "Score(U aint even close)";
+            this.GoToScoreButton.Text = "Score";
             this.GoToScoreButton.UseVisualStyleBackColor = true;
             this.GoToScoreButton.Click += new System.EventHandler(this.LoadScore);
             // 
@@ -96,7 +96,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
-            this.ClientSize = new System.Drawing.Size(351, 568);
+            this.ClientSize = new System.Drawing.Size(327, 568);
             this.Controls.Add(this.RegisterButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);

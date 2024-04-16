@@ -81,13 +81,12 @@
             this.PasswordLabel.Size = new System.Drawing.Size(88, 22);
             this.PasswordLabel.TabIndex = 4;
             this.PasswordLabel.Text = "Password";
-            
             // 
             // Registration_Window
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(755, 450);
             this.Controls.Add(this.PasswordLabel);
             this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.PasswordInput);
@@ -95,7 +94,7 @@
             this.Controls.Add(this.StartGameReg);
             this.Name = "Registration_Window";
             this.Text = "Register your character !";
-            
+            this.Load += new System.EventHandler(this.Registration_Window_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

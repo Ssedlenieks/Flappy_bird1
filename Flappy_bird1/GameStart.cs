@@ -49,19 +49,19 @@ namespace Flappy_bird1
 
         }
 
-        private void SkinChoosing_Click(object sender, EventArgs e)
-        {
-            SkinChoosingScreen skinWindow = new SkinChoosingScreen();
-
-            skinWindow.Show();
-            this.Hide();
-        }
-
         private void RegisterButton_Click(object sender, EventArgs e)
         {
             Registration_Window registration_window = new Registration_Window();
             registration_window.Show();
-            
+
+            if (this == Application.OpenForms[0]) // Check if the current form is the main form
+            {
+                this.Hide(); // Hide the current form instead of closing it
+            }
+            else
+            {
+                this.Close(); // Close the current form if it's not the main form
+            }
         }
     }
 }

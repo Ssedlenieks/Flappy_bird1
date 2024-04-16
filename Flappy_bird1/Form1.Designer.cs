@@ -32,14 +32,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.ScoreText = new System.Windows.Forms.Label();
             this.GameTimer = new System.Windows.Forms.Timer(this.components);
-            this.FlappyBird = new System.Windows.Forms.PictureBox();
             this.Pipe_lower = new System.Windows.Forms.PictureBox();
             this.Pipe_upper = new System.Windows.Forms.PictureBox();
             this.Ground = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.FlappyBird)).BeginInit();
+            this.FlappyBird = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Pipe_lower)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pipe_upper)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Ground)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FlappyBird)).BeginInit();
             this.SuspendLayout();
             // 
             // ScoreText
@@ -58,17 +58,6 @@
             this.GameTimer.Enabled = true;
             this.GameTimer.Interval = 20;
             this.GameTimer.Tick += new System.EventHandler(this.gameTimerEvent);
-            // 
-            // FlappyBird
-            // 
-            this.FlappyBird.Image = ((System.Drawing.Image)(resources.GetObject("FlappyBird.Image")));
-            this.FlappyBird.Location = new System.Drawing.Point(185, 210);
-            this.FlappyBird.Name = "FlappyBird";
-            this.FlappyBird.Size = new System.Drawing.Size(86, 72);
-            this.FlappyBird.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.FlappyBird.TabIndex = 5;
-            this.FlappyBird.TabStop = false;
-            this.FlappyBird.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // Pipe_lower
             // 
@@ -103,27 +92,38 @@
             this.Ground.TabStop = false;
             this.Ground.Click += new System.EventHandler(this.Ground_Click);
             // 
+            // FlappyBird
+            // 
+            this.FlappyBird.Image = global::Flappy_bird1.Properties.Resources.photo1711521563;
+            this.FlappyBird.Location = new System.Drawing.Point(149, 193);
+            this.FlappyBird.Name = "FlappyBird";
+            this.FlappyBird.Size = new System.Drawing.Size(85, 59);
+            this.FlappyBird.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.FlappyBird.TabIndex = 5;
+            this.FlappyBird.TabStop = false;
+            this.FlappyBird.Click += new System.EventHandler(this.pictureBox4_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightBlue;
             this.ClientSize = new System.Drawing.Size(745, 583);
+            this.Controls.Add(this.FlappyBird);
             this.Controls.Add(this.Pipe_lower);
             this.Controls.Add(this.ScoreText);
             this.Controls.Add(this.Pipe_upper);
             this.Controls.Add(this.Ground);
-            this.Controls.Add(this.FlappyBird);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Flappy Bird";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GameKeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GameKeyUp);
-            ((System.ComponentModel.ISupportInitialize)(this.FlappyBird)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pipe_lower)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Pipe_upper)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Ground)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FlappyBird)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

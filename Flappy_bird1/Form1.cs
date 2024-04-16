@@ -1,12 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+//using System.Collections.Generic;
+//using System.ComponentModel;
+//using System.Data;
+//using System.Drawing;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Flappy_bird1.Registration_Window;
 
 namespace Flappy_bird1
 {
@@ -16,8 +17,6 @@ namespace Flappy_bird1
         int Gravity = 10;
         public int Score = 0;
         bool gameOVER = false;
-
-
 
         public Form1()
         {
@@ -105,9 +104,6 @@ namespace Flappy_bird1
             {
                 Gravity = -9;
             }
-
-
-
         }
 
         private void GameKeyUp(object sender, KeyEventArgs e)
@@ -137,9 +133,21 @@ namespace Flappy_bird1
             GameOver gameOver = new GameOver();
             gameOver.Show();
             this.Hide();
-
-            
         }
-       
+
+        public class Player_Score
+        {
+            public Player_Score(int score)
+            {
+                this.score = score;
+            }
+
+            public int score { get; set; }
+        }
+
+        private void label1_Click_2(object sender, EventArgs e)
+        {
+
+        }
     }
 }

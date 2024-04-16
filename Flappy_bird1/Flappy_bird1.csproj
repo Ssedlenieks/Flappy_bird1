@@ -103,12 +103,7 @@
     <Compile Include="ScoreTable.Designer.cs">
       <DependentUpon>ScoreTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="SkinChoosingScreen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SkinChoosingScreen.Designer.cs">
-      <DependentUpon>SkinChoosingScreen.cs</DependentUpon>
-    </Compile>
+    <Compile Include="ScoreTableLoad.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -134,10 +129,18 @@
     <EmbeddedResource Include="ScoreTable.resx">
       <DependentUpon>ScoreTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SkinChoosingScreen.resx">
-      <DependentUpon>SkinChoosingScreen.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Flappy_bird1.Properties.Resources.datasource" />
+    <None Include="Properties\DataSources\Flappy_bird1.Properties.Settings.datasource" />
+    <None Include="Properties\DataSources\Form1.datasource" />
+    <None Include="Properties\DataSources\Form1.Player_Score.datasource" />
+    <None Include="Properties\DataSources\GameOver.datasource" />
+    <None Include="Properties\DataSources\GameStart.datasource" />
+    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\DataSources\Registration_Window.datasource" />
+    <None Include="Properties\DataSources\Registration_Window.Player_Data.datasource" />
+    <None Include="Properties\DataSources\ScoreTable.datasource" />
+    <None Include="Properties\DataSources\ScoreTable.Player.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -153,6 +156,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pipedown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\photo1711521563.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
