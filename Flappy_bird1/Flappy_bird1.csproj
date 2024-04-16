@@ -103,12 +103,6 @@
     <Compile Include="ScoreTable.Designer.cs">
       <DependentUpon>ScoreTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="SkinChoosingScreen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SkinChoosingScreen.Designer.cs">
-      <DependentUpon>SkinChoosingScreen.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -134,9 +128,6 @@
     <EmbeddedResource Include="ScoreTable.resx">
       <DependentUpon>ScoreTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SkinChoosingScreen.resx">
-      <DependentUpon>SkinChoosingScreen.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -153,6 +144,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pipedown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\photo1711521563.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -136,10 +136,12 @@ namespace Flappy_bird1
             gameOVER = false;
             GameOver gameOver = new GameOver();
             gameOver.Show();
-            this.Hide();
-
-            
+            this.Close();
         }
-       
+
+        private void label1_Click_2(object sender, EventArgs e)
+        {
+
+        }
     }
 }

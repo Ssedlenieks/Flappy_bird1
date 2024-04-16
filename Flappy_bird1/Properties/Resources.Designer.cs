@@ -63,6 +63,16 @@ namespace Flappy_bird1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap photo1711521563 {
+            get {
+                object obj = ResourceManager.GetObject("photo1711521563", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pipedown {
             get {
                 object obj = ResourceManager.GetObject("pipedown", resourceCulture);
