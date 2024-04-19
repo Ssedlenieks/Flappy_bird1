@@ -1,15 +1,10 @@
-﻿using System;
-using System.IO;
-using System.Windows.Forms;
+﻿using CsvHelper;
+using System;
 using System.Globalization;
-using CsvHelper;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using Flappy_bird1.Properties;
+using System.IO;
 using System.Text.RegularExpressions;
-using System.Collections.Generic;
-using System.Diagnostics.Eventing.Reader;
+using System.Windows.Forms;
 using static Flappy_bird1.Form1;
-using System.Runtime.CompilerServices;
 
 
 
@@ -25,39 +20,25 @@ namespace Flappy_bird1
         {
             InitializeComponent();
             CreateCsvFolder();
+            CreateCsvFile();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            nameoutput = "";
-            passwordoutput = "";
+            nameoutput = CharacterNameInput.Text;
+            passwordoutput = PasswordInput.Text;
 
-            if (UserExists(CharacterNameInput.Text, PasswordInput.Text) == true && string.IsNullOrEmpty(nameoutput) == false && sPasswordAllowedRegEx.IsMatch(passwordoutput) == true)
+            if (UserExists(nameoutput, passwordoutput) && !string.IsNullOrEmpty(nameoutput) && sPasswordAllowedRegEx.IsMatch(passwordoutput))
             {
                 string csvFilePath = Path.Combine(GetCsvFolderPath(), "registration.csv");
-                using (var writer = new StreamWriter(csvFilePath, true))
+                using (var writer = new StreamWriter(csvFilePath, true)) // Open the file in append mode
                 using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
                 {
-                    csv.WriteField("Name");
-                    csv.WriteField("Password");
-                    csv.NextRecord();
-
                     csv.WriteField(nameoutput);
                     csv.WriteField(passwordoutput);
                     csv.NextRecord();
+
                 }
-            }
-
-            string csvfilepath = Path.Combine(GetCsvFolderPath(), "registration.csv");
-            using (var writer = new StreamWriter(csvfilepath, true))
-            using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
-            {
-                nameoutput = CharacterNameInput.Text;
-                passwordoutput = PasswordInput.Text;
-                csv.WriteField("name" + nameoutput);
-                csv.WriteField("password" + passwordoutput);
-
-                csv.NextRecord();
             }
 
             Form1 form = new Form1();
@@ -67,43 +48,17 @@ namespace Flappy_bird1
 
         private void CharacterNameInput_TextChanged(object sender, EventArgs e)
         {
-            //string csvFilePath = Path.Combine(GetCsvFolderPath(), "registration.csv");
-            //using (var writer = new StreamWriter(csvFilePath, true))
-            //using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
-            //{
-            //    nameoutput = CharacterNameInput.Text;
-            //    csv.WriteField("Name" + nameoutput);
-            //    csv.NextRecord();
-            //}
+            nameoutput = CharacterNameInput.Text;
         }
 
         private void PasswordInput_TextChanged(object sender, EventArgs e)
         {
-            // Save the password to the registration.csv file
-            //string csvFilePath = Path.Combine(GetCsvFolderPath(), "registration.csv");
-            //using (var writer = new StreamWriter(csvFilePath, true))
-            //using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
-            //{
-            //    passwordoutput = PasswordInput.Text;
-            //    csv.WriteField("Password" + passwordoutput);
-            //    csv.NextRecord();
-            //}
+            passwordoutput = PasswordInput.Text;
         }
 
         private void Registration_Window_Load(object sender, EventArgs e)
         {
 
-        }
-
-        public class Player_Data : Player_Score
-        {
-            public Player_Data(int score, string nameoutput) : base(score)
-            {
-                this.score = score;
-                this.nameoutput = nameoutput;
-            }
-
-            public string nameoutput { get; set; }
         }
 
         private void CreateCsvFolder()
@@ -123,14 +78,20 @@ namespace Flappy_bird1
         private bool UserExists(string username, string password)
         {
             string csvFilePath = Path.Combine(GetCsvFolderPath(), "registration.csv");
+            if (!File.Exists(csvFilePath))
+            {
+                return false;
+            }
+
             using (var reader = new StreamReader(csvFilePath))
             using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
             {
                 csv.Read();
+                csv.ReadHeader(); // Add this line to read the header
+
                 while (csv.Read())
                 {
-                    string name = csv.GetField("Name");
-                    string fname = csv.GetField(0); // Read the first field (index 0) as the username
+                    string name = csv.GetField("name");
                     if (name == username)
                     {
                         return true;
@@ -138,6 +99,24 @@ namespace Flappy_bird1
                 }
                 return false;
             }
+        }
+
+        private string CreateCsvFile()
+        {
+            string csvFilePath = Path.Combine(GetCsvFolderPath(), "registration.csv");
+            if (!File.Exists(csvFilePath))
+            {
+                using (var writer = new StreamWriter(csvFilePath))
+                using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+                {
+                    csv.WriteField("name ");
+                    csv.WriteField("Password ");
+                    csv.NextRecord();
+                }
+            }
+            return csvFilePath;
+            // nestrada registration lidz galam, vajag izveidot lidz galam log in , score table lidz galam
+            
         }
     }
 }
