@@ -4,7 +4,6 @@ using System.Globalization;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using static Flappy_bird1.Form1;
 
 
 
@@ -28,7 +27,7 @@ namespace Flappy_bird1
             nameoutput = CharacterNameInput.Text;
             passwordoutput = PasswordInput.Text;
 
-            if (UserExists(nameoutput, passwordoutput) && !string.IsNullOrEmpty(nameoutput) && sPasswordAllowedRegEx.IsMatch(passwordoutput))
+            if (!string.IsNullOrEmpty(nameoutput) && sPasswordAllowedRegEx.IsMatch(passwordoutput))
             {
                 string csvFilePath = Path.Combine(GetCsvFolderPath(), "registration.csv");
                 using (var writer = new StreamWriter(csvFilePath, true)) // Open the file in append mode
@@ -37,7 +36,6 @@ namespace Flappy_bird1
                     csv.WriteField(nameoutput);
                     csv.WriteField(passwordoutput);
                     csv.NextRecord();
-
                 }
             }
 
@@ -58,7 +56,26 @@ namespace Flappy_bird1
 
         private void Registration_Window_Load(object sender, EventArgs e)
         {
+            tabPage1_Click(sender, e); // Call the tabPage1_Click method when the form loads
+        }
 
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+            // Add your registration code here
+            nameoutput = CharacterNameInput.Text;
+            passwordoutput = PasswordInput.Text;
+
+            if (!string.IsNullOrEmpty(nameoutput) && sPasswordAllowedRegEx.IsMatch(passwordoutput))
+            {
+                string csvFilePath = Path.Combine(GetCsvFolderPath(), "registration.csv");
+                using (var writer = new StreamWriter(csvFilePath, true)) // Open the file in append mode
+                using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+                {
+                    csv.WriteField(nameoutput);
+                    csv.WriteField(passwordoutput);
+                    csv.NextRecord();
+                }
+            }
         }
 
         private void CreateCsvFolder()
@@ -75,32 +92,6 @@ namespace Flappy_bird1
             return Path.Combine(Application.StartupPath, "Csv_Files");
         }
 
-        private bool UserExists(string username, string password)
-        {
-            string csvFilePath = Path.Combine(GetCsvFolderPath(), "registration.csv");
-            if (!File.Exists(csvFilePath))
-            {
-                return false;
-            }
-
-            using (var reader = new StreamReader(csvFilePath))
-            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
-            {
-                csv.Read();
-                csv.ReadHeader(); // Add this line to read the header
-
-                while (csv.Read())
-                {
-                    string name = csv.GetField("name");
-                    if (name == username)
-                    {
-                        return true;
-                    }
-                }
-                return false;
-            }
-        }
-
         private string CreateCsvFile()
         {
             string csvFilePath = Path.Combine(GetCsvFolderPath(), "registration.csv");
@@ -108,15 +99,31 @@ namespace Flappy_bird1
             {
                 using (var writer = new StreamWriter(csvFilePath))
                 using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
-                {
-                    csv.WriteField("name ");
-                    csv.WriteField("Password ");
-                    csv.NextRecord();
-                }
+                { }
             }
             return csvFilePath;
-            // nestrada registration lidz galam, vajag izveidot lidz galam log in , score table lidz galam
-            
         }
+
+        private void LoginTab_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void RegistrationTab_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void login_name_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void login_pass_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }

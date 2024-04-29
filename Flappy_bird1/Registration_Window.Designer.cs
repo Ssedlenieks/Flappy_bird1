@@ -36,8 +36,11 @@
             this.RegistrationTab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.LoginTab = new System.Windows.Forms.TabPage();
+            this.login_pass = new System.Windows.Forms.TextBox();
+            this.login_name = new System.Windows.Forms.TextBox();
             this.RegistrationTab.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.LoginTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // StartGameReg
@@ -76,6 +79,7 @@
             this.NameLabel.Size = new System.Drawing.Size(56, 22);
             this.NameLabel.TabIndex = 3;
             this.NameLabel.Text = "Name";
+            
             // 
             // PasswordLabel
             // 
@@ -96,6 +100,7 @@
             this.RegistrationTab.SelectedIndex = 0;
             this.RegistrationTab.Size = new System.Drawing.Size(368, 448);
             this.RegistrationTab.TabIndex = 5;
+            this.RegistrationTab.SelectedIndexChanged += new System.EventHandler(this.RegistrationTab_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -108,9 +113,12 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Registration";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // LoginTab
             // 
+            this.LoginTab.Controls.Add(this.login_pass);
+            this.LoginTab.Controls.Add(this.login_name);
             this.LoginTab.Location = new System.Drawing.Point(4, 25);
             this.LoginTab.Name = "LoginTab";
             this.LoginTab.Padding = new System.Windows.Forms.Padding(3);
@@ -118,6 +126,23 @@
             this.LoginTab.TabIndex = 1;
             this.LoginTab.Text = "Login";
             this.LoginTab.UseVisualStyleBackColor = true;
+            this.LoginTab.Click += new System.EventHandler(this.LoginTab_Click);
+            // 
+            // login_pass
+            // 
+            this.login_pass.Location = new System.Drawing.Point(171, 125);
+            this.login_pass.Name = "login_pass";
+            this.login_pass.Size = new System.Drawing.Size(100, 22);
+            this.login_pass.TabIndex = 1;
+            this.login_pass.TextChanged += new System.EventHandler(this.login_pass_TextChanged);
+            // 
+            // login_name
+            // 
+            this.login_name.Location = new System.Drawing.Point(171, 73);
+            this.login_name.Name = "login_name";
+            this.login_name.Size = new System.Drawing.Size(100, 22);
+            this.login_name.TabIndex = 0;
+            this.login_name.TextChanged += new System.EventHandler(this.login_name_TextChanged);
             // 
             // Registration_Window
             // 
@@ -134,6 +159,8 @@
             this.RegistrationTab.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.LoginTab.ResumeLayout(false);
+            this.LoginTab.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,5 +176,7 @@
         private System.Windows.Forms.TabControl RegistrationTab;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage LoginTab;
+        private System.Windows.Forms.TextBox login_pass;
+        private System.Windows.Forms.TextBox login_name;
     }
 }
