@@ -5,6 +5,8 @@ using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using static Flappy_bird1.Player; 
+using System.Collections.Generic;
+using static Flappy_bird1.GameStart;
 
 namespace Flappy_bird1
 {
@@ -12,6 +14,8 @@ namespace Flappy_bird1
     {
         public string nameoutput = "";
         public string passwordoutput = "";
+        public List<Player> players = new List<Player>(); 
+
         Regex sPasswordAllowedRegEx = new Regex(@"^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,30}$", RegexOptions.Compiled);
 
         public Registration_Window()
@@ -28,6 +32,9 @@ namespace Flappy_bird1
 
             if (!string.IsNullOrEmpty(nameoutput) && sPasswordAllowedRegEx.IsMatch(passwordoutput))
             {
+                Player player = new Player(0,"",0); 
+                players.Add(player); 
+
                 string csvFilePath = Path.Combine(GetCsvFolderPath(), "registration.csv");
                 using (var writer = new StreamWriter(csvFilePath, true)) // Open the file in append mode
                 using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
@@ -65,17 +72,18 @@ namespace Flappy_bird1
 
             if (!string.IsNullOrEmpty(nameoutput) && sPasswordAllowedRegEx.IsMatch(passwordoutput))
             {
+                Player player = new Player(0,"",0); // Create a new player object
+                players.Add(player); // Add the player to the list
+
                 string csvFilePath = Path.Combine(GetCsvFolderPath(), "registration.csv");
-                using (var writer = new StreamWriter(csvFilePath, true)) 
+                using (var writer = new StreamWriter(csvFilePath, true))
                 using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
                 {
-                    
-                    Player player = new Player(0, nameoutput, 0);
                     csv.WriteField(nameoutput);
                     csv.WriteField(passwordoutput);
-                    csv.NextRecord();                                       
-                }                
+                    csv.NextRecord();
                 }
+            }
         }
 
         private void CreateCsvFolder()

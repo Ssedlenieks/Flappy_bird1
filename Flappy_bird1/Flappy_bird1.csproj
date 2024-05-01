@@ -92,6 +92,11 @@
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Registration_Window.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,14 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Registration_Window.resx">
       <DependentUpon>Registration_Window.cs</DependentUpon>
     </EmbeddedResource>
@@ -150,6 +150,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\photo1711521563.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\city-pixel-art-11562977905xi1bm2w9g0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\day-time-cityscape-light-pixel-background-vector-32876692.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

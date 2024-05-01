@@ -10,26 +10,23 @@ namespace Flappy_bird1
     public partial class GameStart : Form
 
     {
-        public List<Player> players { get; set; }        
+        public List<Player> players { get; set; }  
         public GameStart()
         {
             players = GetPlayers();
             InitializeComponent();
         }
 
-        /*private List<Player> GetPlayers()
+        public List<Player> GetPlayers()
         {
-            /*var list = new List<Player>();
-            for (int x = 0; x < PlayerCount; x++)
-            {
-                
-            }
-            return list;        }
-        */
-        private void GameStart_Load(object sender, EventArgs e)
+            var list = new List<Player>();
+            return list;        
+        }
+        
+        public void GameStart_Load(object sender, EventArgs e)
         {
-            var players = this.players;
-            dataGridView1.DataSource = players;
+            var Players = this.players;
+            dataGridView1.DataSource = Players;
 
         }
 
@@ -92,6 +89,11 @@ namespace Flappy_bird1
         {
             
             
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

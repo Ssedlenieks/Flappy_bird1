@@ -85,12 +85,7 @@ namespace Flappy_bird1
                 
             }
 
-            for (int i = 0; i < Score; i+=1  )
-            {
-                pipeSpeed += 1;
-
-            }
-
+            
             if (FlappyBird.Bounds.IntersectsWith(Pipe_lower.Bounds) || FlappyBird.Bounds.IntersectsWith(Pipe_upper.Bounds) || FlappyBird.Bounds.IntersectsWith(Ground.Bounds) || FlappyBird.Top < -25)
             {
                 endGame();
@@ -124,8 +119,6 @@ namespace Flappy_bird1
         {
             GameTimer.Stop();
             gameOVER = true;
-            //endText1. = "Game Over! ";
-            // endText2 = "Your final score is: " + Score;
         }
         public void RestartGame()
         {

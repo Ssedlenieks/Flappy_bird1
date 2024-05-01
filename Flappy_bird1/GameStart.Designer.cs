@@ -36,17 +36,21 @@
             this.StartScreen = new System.Windows.Forms.TabPage();
             this.scoretab = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.StartGameTab.SuspendLayout();
             this.StartScreen.SuspendLayout();
             this.scoretab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // GameStartButton
             // 
-            this.GameStartButton.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GameStartButton.Location = new System.Drawing.Point(88, 168);
+            this.GameStartButton.Font = new System.Drawing.Font("Agency FB", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GameStartButton.Location = new System.Drawing.Point(88, 183);
             this.GameStartButton.Name = "GameStartButton";
             this.GameStartButton.Size = new System.Drawing.Size(274, 87);
             this.GameStartButton.TabIndex = 0;
@@ -60,7 +64,7 @@
             this.pictureBox1.BackgroundImage = global::Flappy_bird1.Properties.Resources.photo1711521563;
             this.pictureBox1.Location = new System.Drawing.Point(78, 67);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(87, 58);
+            this.pictureBox1.Size = new System.Drawing.Size(105, 72);
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -68,16 +72,17 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(202, 88);
+            this.label1.Font = new System.Drawing.Font("Agency FB", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(189, 78);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(173, 37);
+            this.label1.Size = new System.Drawing.Size(173, 50);
             this.label1.TabIndex = 5;
             this.label1.Text = "Flappy Bird";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // RegisterButton
             // 
-            this.RegisterButton.Font = new System.Drawing.Font("Times New Roman", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RegisterButton.Font = new System.Drawing.Font("Agency FB", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RegisterButton.Location = new System.Drawing.Point(88, 312);
             this.RegisterButton.Name = "RegisterButton";
             this.RegisterButton.Size = new System.Drawing.Size(274, 97);
@@ -98,11 +103,13 @@
             // 
             // StartScreen
             // 
-            this.StartScreen.BackColor = System.Drawing.Color.SkyBlue;
+            this.StartScreen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(128)))), ((int)(((byte)(247)))));
             this.StartScreen.Controls.Add(this.label1);
             this.StartScreen.Controls.Add(this.RegisterButton);
             this.StartScreen.Controls.Add(this.GameStartButton);
             this.StartScreen.Controls.Add(this.pictureBox1);
+            this.StartScreen.Controls.Add(this.pictureBox2);
+            this.StartScreen.Controls.Add(this.pictureBox3);
             this.StartScreen.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.StartScreen.Location = new System.Drawing.Point(4, 25);
             this.StartScreen.Name = "StartScreen";
@@ -125,7 +132,7 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.SkyBlue;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(128)))), ((int)(((byte)(247)))));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.GridColor = System.Drawing.Color.White;
             this.dataGridView1.Location = new System.Drawing.Point(3, 0);
@@ -135,6 +142,24 @@
             this.dataGridView1.Size = new System.Drawing.Size(449, 540);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::Flappy_bird1.Properties.Resources.clouds;
+            this.pictureBox2.Location = new System.Drawing.Point(6, 350);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(593, 188);
+            this.pictureBox2.TabIndex = 8;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = global::Flappy_bird1.Properties.Resources.clouds;
+            this.pictureBox3.Location = new System.Drawing.Point(-326, 131);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(793, 196);
+            this.pictureBox3.TabIndex = 9;
+            this.pictureBox3.TabStop = false;
             // 
             // GameStart
             // 
@@ -152,6 +177,8 @@
             this.StartScreen.PerformLayout();
             this.scoretab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -166,5 +193,7 @@
         private System.Windows.Forms.TabPage StartScreen;
         private System.Windows.Forms.TabPage scoretab;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }
