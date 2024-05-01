@@ -36,9 +36,6 @@
             this.StartScreen = new System.Windows.Forms.TabPage();
             this.scoretab = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.PlayerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Score = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.StartGameTab.SuspendLayout();
             this.StartScreen.SuspendLayout();
@@ -130,10 +127,6 @@
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.SkyBlue;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PlayerID,
-            this.Name,
-            this.Score});
             this.dataGridView1.GridColor = System.Drawing.Color.White;
             this.dataGridView1.Location = new System.Drawing.Point(3, 0);
             this.dataGridView1.Name = "dataGridView1";
@@ -143,28 +136,6 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // PlayerID
-            // 
-            this.PlayerID.HeaderText = "Player ID";
-            this.PlayerID.MinimumWidth = 6;
-            this.PlayerID.Name = "PlayerID";
-            this.PlayerID.Width = 125;
-            // 
-            // Name
-            // 
-            this.Name.HeaderText = "Player Name";
-            this.Name.MinimumWidth = 6;
-            this.Name.Name = "Name";
-            this.Name.Width = 125;
-            // 
-            // Score
-            // 
-            this.Score.HeaderText = "Player Score";
-            this.Score.MinimumWidth = 6;
-            this.Score.Name = "Score";
-            this.Score.ReadOnly = true;
-            this.Score.Width = 125;
-            // 
             // GameStart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -172,7 +143,7 @@
             this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(449, 566);
             this.Controls.Add(this.StartGameTab);
-            
+            this.Name = "GameStart";
             this.Text = "Game Start";
             this.Load += new System.EventHandler(this.GameStart_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -195,8 +166,5 @@
         private System.Windows.Forms.TabPage StartScreen;
         private System.Windows.Forms.TabPage scoretab;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PlayerID;
-        private new System.Windows.Forms.DataGridViewTextBoxColumn Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Score;
     }
 }

@@ -4,8 +4,7 @@ using System.Globalization;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-
-
+using static Flappy_bird1.Player; 
 
 namespace Flappy_bird1
 {
@@ -61,21 +60,22 @@ namespace Flappy_bird1
 
         private void tabPage1_Click(object sender, EventArgs e)
         {
-            // Add your registration code here
             nameoutput = CharacterNameInput.Text;
             passwordoutput = PasswordInput.Text;
 
             if (!string.IsNullOrEmpty(nameoutput) && sPasswordAllowedRegEx.IsMatch(passwordoutput))
             {
                 string csvFilePath = Path.Combine(GetCsvFolderPath(), "registration.csv");
-                using (var writer = new StreamWriter(csvFilePath, true)) // Open the file in append mode
+                using (var writer = new StreamWriter(csvFilePath, true)) 
                 using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
                 {
+                    
+                    Player player = new Player(0, nameoutput, 0);
                     csv.WriteField(nameoutput);
                     csv.WriteField(passwordoutput);
-                    csv.NextRecord();
+                    csv.NextRecord();                                       
+                }                
                 }
-            }
         }
 
         private void CreateCsvFolder()

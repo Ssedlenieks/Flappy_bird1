@@ -1,43 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static Flappy_bird1.Registration_Window;
-using Flappy_bird1;
 using System.IO;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Windows.Forms;
+using static Flappy_bird1.Player;
+using static Flappy_bird1.Registration_Window;
 
 namespace Flappy_bird1
 {
     public partial class GameStart : Form
 
     {
-        public int ID = 0;
-        private List<Player> players = new List<Player>();
-        public class Player
-        {
-            public Player(int score, string nameoutput, int ID)
-            {
-                this.ID = ID;
-                ID++;
-            }
-            public int ID { get; set; }
-            public string Nameoutput { get; set; }
-            public int Score { get; set; }
-        }
-
+        public List<Player> players { get; set; }        
         public GameStart()
         {
+            players = GetPlayers();
             InitializeComponent();
         }
 
+        /*private List<Player> GetPlayers()
+        {
+            /*var list = new List<Player>();
+            for (int x = 0; x < PlayerCount; x++)
+            {
+                
+            }
+            return list;        }
+        */
         private void GameStart_Load(object sender, EventArgs e)
         {
+            var players = this.players;
+            dataGridView1.DataSource = players;
 
         }
 
@@ -98,28 +90,8 @@ namespace Flappy_bird1
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            /*DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("ID");
-            dataTable.Columns.Add("Name");
-            dataTable.Columns.Add("Score");
-            string filepath = listView1.Text;
-            StreamReader reader = new StreamReader(filepath);
-            string[] totalData = new string[File.ReadAllLines(filepath).Length];
-            totalData = reader.ReadLine().Split(',');
-            while (!reader.EndOfStream)
-            {
-                totalData = reader.ReadLine().Split(',');
-                dataTable.Rows.Add(totalData[0], totalData[1], totalData[2]);
-            }
-
-            listView1.DataSource = dataTable;
-            */
-
-
-            foreach (Player player in players)
-            {
-                Console.WriteLine(player.ID + "" + player.Nameoutput + " " + player.Score);
-            }
+            
+            
         }
     }
 }
