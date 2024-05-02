@@ -155,7 +155,7 @@
     <None Include="Resources\city-pixel-art-11562977905xi1bm2w9g0.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\day-time-cityscape-light-pixel-background-vector-32876692.jpg" />
+    <None Include="Resources\photo_5773860429234290518_x.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -36,7 +36,7 @@ namespace Flappy_bird1
                 players.Add(player); 
 
                 string csvFilePath = Path.Combine(GetCsvFolderPath(), "registration.csv");
-                using (var writer = new StreamWriter(csvFilePath, true)) // Open the file in append mode
+                using (var writer = new StreamWriter(csvFilePath, true)) 
                 using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
                 {
                     csv.WriteField(nameoutput);
@@ -62,7 +62,7 @@ namespace Flappy_bird1
 
         private void Registration_Window_Load(object sender, EventArgs e)
         {
-            tabPage1_Click(sender, e); // Call the tabPage1_Click method when the form loads
+            tabPage1_Click(sender, e); 
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -72,8 +72,8 @@ namespace Flappy_bird1
 
             if (!string.IsNullOrEmpty(nameoutput) && sPasswordAllowedRegEx.IsMatch(passwordoutput))
             {
-                Player player = new Player(0,"",0); // Create a new player object
-                players.Add(player); // Add the player to the list
+                Player player = new Player(0,"",0); 
+                players.Add(player); 
 
                 string csvFilePath = Path.Combine(GetCsvFolderPath(), "registration.csv");
                 using (var writer = new StreamWriter(csvFilePath, true))

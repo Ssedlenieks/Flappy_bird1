@@ -63,9 +63,39 @@ namespace Flappy_bird1.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap city_pixel_art_11562977905xi1bm2w9g0 {
+            get {
+                object obj = ResourceManager.GetObject("city-pixel-art-11562977905xi1bm2w9g0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap city_pixel_art_11562977905xi1bm2w9g01 {
+            get {
+                object obj = ResourceManager.GetObject("city-pixel-art-11562977905xi1bm2w9g01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap clouds {
             get {
                 object obj = ResourceManager.GetObject("clouds", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap photo_5773860429234290518_x {
+            get {
+                object obj = ResourceManager.GetObject("photo_5773860429234290518_x", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Windows.Forms;
 using static Flappy_bird1.Player;
@@ -17,9 +18,54 @@ namespace Flappy_bird1
             InitializeComponent();
         }
 
+        public string GetCsvFolderPath()
+        {
+            return Path.Combine(Application.StartupPath, "Csv_Files");
+        }
+
+        public void LoadCSV()
+        {
+            try 
+            { 
+                string filePath = Path.Combine(GetCsvFolderPath(), "registration.csv");
+
+                if (!File.Exists(filePath))
+                {
+                    MessageBox.Show("File not found");
+                    return;
+                }
+                DataTable dataTable = new DataTable();
+                using (StreamReader sr = new StreamReader(filePath))
+                {
+                    string line = sr.ReadLine();
+                    string[] headers = sr.ReadLine().Split(',');
+                    foreach (string header in headers)
+                    {
+                        dataTable.Columns.Add(header);
+                    }
+
+                    while (!sr.EndOfStream)
+                    {
+                        string[] rows = sr.ReadLine().Split(',');
+                        dataTable.Rows.Add(rows);
+                    }
+                }
+
+                dataGridView1.DataSource = dataTable;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error" + ex.Message);
+            }
+        }
+
         public List<Player> GetPlayers()
         {
             var list = new List<Player>();
+            if (Player_Count > 0)
+            {
+                LoadCSV();
+            }
             return list;        
         }
         
@@ -44,33 +90,12 @@ namespace Flappy_bird1
 
         }
 
-        /*private void LoadScore(object sender, EventArgs e)
-        {
-            ScoreTable scoretable = new ScoreTable(); 
-
-            scoretable.Show();
-            
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-        */
         
         private void RegisterButton_Click(object sender, EventArgs e)
         {
             Registration_Window registration_window = new Registration_Window();
             registration_window.Show();
-
-            /*if (this == Application.OpenForms[0]) // Check if the current form is the main form
-            {
-                this.Hide(); // Hide the current form instead of closing it
-            }
-            else
-            {
-                this.Close(); // Close the current form if it's not the main form
-            }*/
+           
         }
 
         

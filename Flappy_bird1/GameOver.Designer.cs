@@ -58,7 +58,7 @@
             this.resetbutotn.Name = "resetbutotn";
             this.resetbutotn.Size = new System.Drawing.Size(163, 92);
             this.resetbutotn.TabIndex = 2;
-            this.resetbutotn.Text = "Reset";
+            this.resetbutotn.Text = "Try Again";
             this.resetbutotn.UseVisualStyleBackColor = true;
             this.resetbutotn.Click += new System.EventHandler(this.resetgame);
             // 
