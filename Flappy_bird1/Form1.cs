@@ -138,6 +138,10 @@ namespace Flappy_bird1
 
             public int score { get; set; }
         }
+        public class score
+        {
+            public int Score;
+        }
 
         private void label1_Click_2(object sender, EventArgs e)
         {

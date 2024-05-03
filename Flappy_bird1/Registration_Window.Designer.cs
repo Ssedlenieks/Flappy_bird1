@@ -36,11 +36,11 @@
             this.RegistrationTab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.LoginTab = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.login_pass = new System.Windows.Forms.TextBox();
             this.login_name = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.RegistrationTab.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.LoginTab.SuspendLayout();
@@ -138,6 +138,39 @@
             this.LoginTab.Text = "Login";
             this.LoginTab.Click += new System.EventHandler(this.LoginTab_Click);
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Agency FB", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(59, 229);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(222, 91);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Start the game";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(128)))), ((int)(((byte)(247)))));
+            this.label2.Font = new System.Drawing.Font("Agency FB", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(64, 118);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(91, 28);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Password";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(128)))), ((int)(((byte)(247)))));
+            this.label1.Font = new System.Drawing.Font("Agency FB", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(84, 66);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 28);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Name";
+            // 
             // login_pass
             // 
             this.login_pass.Location = new System.Drawing.Point(171, 125);
@@ -153,38 +186,6 @@
             this.login_name.Size = new System.Drawing.Size(100, 22);
             this.login_name.TabIndex = 0;
             this.login_name.TextChanged += new System.EventHandler(this.login_name_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(128)))), ((int)(((byte)(247)))));
-            this.label1.Font = new System.Drawing.Font("Agency FB", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(84, 66);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 28);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Name";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(128)))), ((int)(((byte)(247)))));
-            this.label2.Font = new System.Drawing.Font("Agency FB", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(64, 118);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 28);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Password";
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Agency FB", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(59, 229);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(222, 91);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Start the game";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // Registration_Window
             // 
