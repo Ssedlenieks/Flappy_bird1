@@ -4,10 +4,9 @@ using System.Globalization;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using static Flappy_bird1.Player; 
 using System.Collections.Generic;
-using static Flappy_bird1.GameStart;
 using System.Linq;
+using static Flappy_bird1.Form1; 
 
 namespace Flappy_bird1
 {
@@ -135,10 +134,17 @@ namespace Flappy_bird1
             }
         }
 
-        class User
+        public class User : Form1
         {
             public string Username { get; set; }
             public string Password { get; set; }
+            public int userScore { get; set; }
+            public User(string username, string password, int Score) 
+            {
+                Username = username;
+                Password = password;
+                userScore = Score;
+            }
         }
 
         class Login

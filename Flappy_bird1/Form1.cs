@@ -15,7 +15,6 @@ namespace Flappy_bird1
     {
         int pipeSpeed = 8;
         int Gravity = 10;
-        public int Score = 0;
         bool gameOVER = false;
 
         public Form1()
@@ -64,7 +63,7 @@ namespace Flappy_bird1
 
         }
 
-        private void gameTimerEvent(object sender, EventArgs e)
+        public void gameTimerEvent(object sender, EventArgs e)
         {
             FlappyBird.Top += Gravity;
             Pipe_lower.Left -= pipeSpeed;
@@ -82,7 +81,6 @@ namespace Flappy_bird1
                 Pipe_upper.Left = 850;
                 Score++;
                 ScoreText.Text = Score.ToString();
-                
             }
 
             
@@ -92,6 +90,7 @@ namespace Flappy_bird1
             }
 
         }
+        public int Score { get; set; } 
 
         private void GameKeyDown(object sender, KeyEventArgs e)
         {
@@ -128,21 +127,7 @@ namespace Flappy_bird1
 
             this.Hide();
         }
-
-        public class Player_Score
-        {
-            public Player_Score(int score)
-            {
-                this.score = score;
-            }
-
-            public int score { get; set; }
-        }
-        public class score
-        {
-            public int Score;
-        }
-
+        
         private void label1_Click_2(object sender, EventArgs e)
         {
 
@@ -153,8 +138,5 @@ namespace Flappy_bird1
 
         }
     }
-
-
-
     }
 
