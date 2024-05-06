@@ -38,6 +38,9 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.scoretab = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Player_ID_column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Player_name_column = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Player_Score_Colummn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.StartGameTab.SuspendLayout();
             this.StartScreen.SuspendLayout();
@@ -56,7 +59,7 @@
             this.GameStartButton.TabIndex = 0;
             this.GameStartButton.Text = "Start Game";
             this.GameStartButton.UseVisualStyleBackColor = true;
-            this.GameStartButton.Click += new System.EventHandler(this.LoadGame);
+            this.GameStartButton.Click += new System.EventHandler(this.GameStartButton_Click);
             // 
             // pictureBox1
             // 
@@ -67,7 +70,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(105, 72);
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label1
             // 
@@ -78,7 +80,6 @@
             this.label1.Size = new System.Drawing.Size(173, 50);
             this.label1.TabIndex = 5;
             this.label1.Text = "Flappy Bird";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // RegisterButton
             // 
@@ -89,7 +90,6 @@
             this.RegisterButton.TabIndex = 6;
             this.RegisterButton.Text = "Register";
             this.RegisterButton.UseVisualStyleBackColor = true;
-            this.RegisterButton.Click += new System.EventHandler(this.RegisterButton_Click);
             // 
             // StartGameTab
             // 
@@ -146,20 +146,43 @@
             this.scoretab.Size = new System.Drawing.Size(448, 541);
             this.scoretab.TabIndex = 1;
             this.scoretab.Text = "Score";
-            this.scoretab.Click += new System.EventHandler(this.scoretab_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(128)))), ((int)(((byte)(247)))));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Player_ID_column,
+            this.Player_name_column,
+            this.Player_Score_Colummn});
             this.dataGridView1.GridColor = System.Drawing.Color.White;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 0);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(449, 540);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // Player_ID_column
+            // 
+            this.Player_ID_column.HeaderText = "ID";
+            this.Player_ID_column.MinimumWidth = 6;
+            this.Player_ID_column.Name = "Player_ID_column";
+            this.Player_ID_column.Width = 125;
+            // 
+            // Player_name_column
+            // 
+            this.Player_name_column.HeaderText = "Name";
+            this.Player_name_column.MinimumWidth = 6;
+            this.Player_name_column.Name = "Player_name_column";
+            this.Player_name_column.Width = 125;
+            // 
+            // Player_Score_Colummn
+            // 
+            this.Player_Score_Colummn.HeaderText = "Score";
+            this.Player_Score_Colummn.MinimumWidth = 6;
+            this.Player_Score_Colummn.Name = "Player_Score_Colummn";
+            this.Player_Score_Colummn.Width = 125;
             // 
             // GameStart
             // 
@@ -195,5 +218,8 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Player_ID_column;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Player_name_column;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Player_Score_Colummn;
     }
 }

@@ -74,7 +74,7 @@ namespace Flappy_bird1
             {
                 Pipe_lower.Left = 800;
                 ScoreText.Text = Score.ToString();
-            
+
             }
             if (Pipe_upper.Left < -140)
             {
@@ -83,18 +83,18 @@ namespace Flappy_bird1
                 ScoreText.Text = Score.ToString();
             }
 
-            
+
             if (FlappyBird.Bounds.IntersectsWith(Pipe_lower.Bounds) || FlappyBird.Bounds.IntersectsWith(Pipe_upper.Bounds) || FlappyBird.Bounds.IntersectsWith(Ground.Bounds) || FlappyBird.Top < -25)
             {
                 endGame();
             }
 
         }
-        public int Score { get; set; } 
+        public int Score { get; set; }
 
         private void GameKeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Space)
+            if (e.KeyCode == Keys.Space)
             {
                 Gravity = -9;
             }
@@ -105,12 +105,12 @@ namespace Flappy_bird1
             if (e.KeyCode == Keys.Space)
             {
                 Gravity = 10;
-            
+
             }
             if (gameOVER)
             {
                 RestartGame();
-            
+
             }
 
         }
@@ -127,7 +127,7 @@ namespace Flappy_bird1
 
             this.Hide();
         }
-        
+
         private void label1_Click_2(object sender, EventArgs e)
         {
 
@@ -138,5 +138,4 @@ namespace Flappy_bird1
 
         }
     }
-    }
-
+}

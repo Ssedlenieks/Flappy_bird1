@@ -4,18 +4,20 @@ using System.Globalization;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using static Flappy_bird1.Player;
 using System.Collections.Generic;
+using static Flappy_bird1.GameStart;
 using System.Linq;
-using static Flappy_bird1.Form1; 
+using CsvHelper.Configuration.Attributes;
 
 namespace Flappy_bird1
 {
     public partial class Registration_Window : Form
     {
-        
+        readonly string filePath = "users.csv";
         public string nameoutput = "";
         public string passwordoutput = "";
-        public List<Player> players = new List<Player>(); 
+        public List<Player> players = new List<Player>();
 
         Regex sPasswordAllowedRegEx = new Regex(@"^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,30}$", RegexOptions.Compiled);
 
@@ -28,15 +30,18 @@ namespace Flappy_bird1
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-
-            if (string.IsNullOrEmpty(nameoutput) || string.IsNullOrEmpty(passwordoutput))
+            if ((string.IsNullOrEmpty(nameoutput) || string.IsNullOrEmpty(passwordoutput)))
             {
                 MessageBox.Show("Please enter a username and password.");
                 return;
             }
+            Registration_Window.Registration registration = new Registration_Window.Registration();
+            if (registration.UserExists(nameoutput))
+            {
+                MessageBox.Show("Username already exists. Please choose a different username.");
+                return;
+            }
 
-            Registration registration = new Registration();
             registration.RegisterUser(nameoutput, passwordoutput);
 
             this.Close();
@@ -46,105 +51,92 @@ namespace Flappy_bird1
             this.Close();
         }
 
-        private void CharacterNameInput_TextChanged(object sender, EventArgs e)
+        internal void CharacterNameInput_TextChanged(object sender, EventArgs e)
         {
-            nameoutput = CharacterNameInput.Text;
+            nameoutput = this.CharacterNameInput.Text;
         }
 
         private void PasswordInput_TextChanged(object sender, EventArgs e)
         {
-            passwordoutput = PasswordInput.Text;
+            passwordoutput = this.PasswordInput.Text;
         }
 
         private void Registration_Window_Load(object sender, EventArgs e)
         {
-            tabPage1_Click(sender, e); 
+            tabPage1_Click(sender, e);
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
-        {/*
-            nameoutput = CharacterNameInput.Text;
-            passwordoutput = PasswordInput.Text;
-            
-
-            if (!string.IsNullOrEmpty(nameoutput) && sPasswordAllowedRegEx.IsMatch(passwordoutput))
-            {
-                string Name = nameoutput;
-                string password = passwordoutput;
-                int id = GetNextId();
-                Form1.score score = new Form1.score();
-
-
-                string csvFilePath = Path.Combine(GetCsvFolderPath(), "registration.csv");
-                using (var writer = new StreamWriter(csvFilePath, true))
-                using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
-                {
-                    
-                    writer.WriteLine(string.Format("{0},{1},{2},{3}", id, Name, password, score));
-                }
-            }*/
-        }
         class Registration
         {
-            private List<User> users = new List<User>();
-            private string filePath = "users.csv";
+            private readonly string _filePath = "users.csv";
 
             public void RegisterUser(string username, string password)
             {
-                if (!File.Exists(filePath))
+                try
                 {
-                    using (var writer = new StreamWriter(filePath))
-                    using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+                    if (UserExists(username))
                     {
-                        csv.WriteHeader<User>();
-                        csv.NextRecord();
+                        
+                        MessageBox.Show("Username already exists. Please choose a different username.");
+                        return;
+
                     }
-                }
 
-                users = ReadUsersFromCsv();
-
-                if (!users.Exists(user => user.Username == username))
-                {
+                    var users = ReadUsersFromCsv();
                     users.Add(new User { Username = username, Password = password });
                     WriteUsersToCsv(users);
-                    Console.WriteLine("Registration successful!");
+                    MessageBox.Show("Registration successful!");
                 }
-                else
+                catch (Exception ex)
                 {
-                    Console.WriteLine("Username already exists.");
+                    MessageBox.Show(ex.Message);
                 }
             }
 
-            private void WriteUsersToCsv(IEnumerable<User> users)
+            internal bool UserExists(string username)
             {
-                using (var writer = new StreamWriter(filePath))
+                return ReadUsersFromCsv().Any(user => user.Username == username);
+            }
+
+            public List<User> ReadUsersFromCsv()
+            {
+                if (!File.Exists(_filePath))
+                {
+                    CreateCsvFile();
+                    return new List<User>();
+                }
+
+                using (var reader = new StreamReader(_filePath))
+                using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+                {
+                    return csv.GetRecords<User>().ToList();
+                }
+            }
+
+            private void WriteUsersToCsv(List<User> users)
+            {
+                using (var writer = new StreamWriter(_filePath))
                 using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
                 {
                     csv.WriteRecords(users);
                 }
             }
 
-            private List<User> ReadUsersFromCsv()
+            private void CreateCsvFile()
             {
-                using (var reader = new StreamReader(filePath))
-                using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+                using (var writer = new StreamWriter(_filePath))
+                using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
                 {
-                    return csv.GetRecords<User>().ToList();
+                    csv.WriteHeader<User>();
+                    csv.NextRecord();
                 }
             }
         }
 
-        public class User : Form1
+        class User
         {
             public string Username { get; set; }
             public string Password { get; set; }
-            public int userScore { get; set; }
-            public User(string username, string password, int Score) 
-            {
-                Username = username;
-                Password = password;
-                userScore = Score;
-            }
         }
 
         class Login
@@ -183,64 +175,9 @@ namespace Flappy_bird1
             }
         }
 
-        /*private int GetNextId()
-        {
-            int nextId = 1;
-
-            if (File.Exists("output.csv"))
-            {
-                string[] lines = File.ReadAllLines("output.csv");
-                int lastId = int.Parse(lines[lines.Length - 1].Split(',')[0]);
-                nextId = lastId + 1;
-            }
-
-            return nextId;
-        }
-
-        private void CreateCsvFolder()
-        {
-            string folderPath = GetCsvFolderPath();
-            if (!Directory.Exists(folderPath))
-            {
-                Directory.CreateDirectory(folderPath);
-            }
-        }
-
-        private string GetCsvFolderPath()
-        {
-            return Path.Combine(Application.StartupPath, "Csv_Files");
-        }
-
-        private string CreateCsvFile()
-        {
-            string csvFilePath = Path.Combine(GetCsvFolderPath(), "registration.csv");
-            if (!File.Exists(csvFilePath))
-            {
-                using (var writer = new StreamWriter(csvFilePath))
-                using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
-                { }
-            }
-            return csvFilePath;
-        }
-        */
         private void LoginTab_Click(object sender, EventArgs e)
         {
             RegistrationTab.Enabled = false;
-
-
-        }
-
-        private void RegistrationTab_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void login_name_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void login_pass_TextChanged(object sender, EventArgs e)
-        {
 
         }
 
@@ -263,6 +200,25 @@ namespace Flappy_bird1
             {
                 MessageBox.Show("Invalid username or password.");
             }
+       
+        
+        }
+
+        private void RegistrationTab_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void login_name_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void login_pass_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
         }
     }
 }

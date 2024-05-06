@@ -177,7 +177,6 @@
             this.login_pass.Name = "login_pass";
             this.login_pass.Size = new System.Drawing.Size(100, 22);
             this.login_pass.TabIndex = 1;
-            this.login_pass.TextChanged += new System.EventHandler(this.login_pass_TextChanged);
             // 
             // login_name
             // 
@@ -185,7 +184,6 @@
             this.login_name.Name = "login_name";
             this.login_name.Size = new System.Drawing.Size(100, 22);
             this.login_name.TabIndex = 0;
-            this.login_name.TextChanged += new System.EventHandler(this.login_name_TextChanged);
             // 
             // Registration_Window
             // 
@@ -195,7 +193,6 @@
             this.Controls.Add(this.RegistrationTab);
             this.Name = "Registration_Window";
             this.Text = "Register your character !";
-            this.Load += new System.EventHandler(this.Registration_Window_Load);
             this.RegistrationTab.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
