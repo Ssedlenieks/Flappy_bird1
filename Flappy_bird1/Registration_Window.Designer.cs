@@ -104,7 +104,6 @@
             this.RegistrationTab.SelectedIndex = 0;
             this.RegistrationTab.Size = new System.Drawing.Size(368, 448);
             this.RegistrationTab.TabIndex = 5;
-            this.RegistrationTab.SelectedIndexChanged += new System.EventHandler(this.RegistrationTab_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -147,7 +146,7 @@
             this.button1.TabIndex = 6;
             this.button1.Text = "Start the game";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
             // 
             // label2
             // 

@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using static Flappy_bird1.Player;
-using static Flappy_bird1.Registration_Window;
+using static Flappy_bird1.Form1;
 
 namespace Flappy_bird1
 {
@@ -16,6 +12,7 @@ namespace Flappy_bird1
         public int Player_ID = 1;
         public void Get_Name() 
         {
+
             string filePath = "users.csv";
 
             DataTable table = new DataTable();
@@ -46,7 +43,6 @@ namespace Flappy_bird1
             Get_Name();
         }
 
-        
         public void GameStart_Load(object sender, EventArgs e)
         {
             

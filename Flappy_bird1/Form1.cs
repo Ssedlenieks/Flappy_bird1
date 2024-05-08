@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static Flappy_bird1.Registration_Window;
 
 namespace Flappy_bird1
 {
@@ -118,7 +110,15 @@ namespace Flappy_bird1
         {
             GameTimer.Stop();
             gameOVER = true;
+            
         }
+        public string ScoreWhenOver()
+        {
+            return Score.ToString();
+        }   
+
+        
+
         public void RestartGame()
         {
             gameOVER = false;

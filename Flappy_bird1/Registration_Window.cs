@@ -4,11 +4,8 @@ using System.Globalization;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using static Flappy_bird1.Player;
 using System.Collections.Generic;
-using static Flappy_bird1.GameStart;
 using System.Linq;
-using CsvHelper.Configuration.Attributes;
 
 namespace Flappy_bird1
 {
@@ -17,16 +14,25 @@ namespace Flappy_bird1
         readonly string filePath = "users.csv";
         public string nameoutput = "";
         public string passwordoutput = "";
+        Form1 form1;
+        string score;
+    
+
         public List<Player> players = new List<Player>();
 
         Regex sPasswordAllowedRegEx = new Regex(@"^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,30}$", RegexOptions.Compiled);
+        Regex usernameRegex = new Regex(@"^[a-zA-Z]{5,20}$");
 
         public Registration_Window()
         {
             InitializeComponent();
+            form1 = new Form1();
+            string score = form1.ScoreWhenOver();
             //CreateCsvFolder();
             //CreateCsvFile();
         }
+        //=======================================================================================================
+        //==================================REGISTRATION button==================================================
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -41,15 +47,21 @@ namespace Flappy_bird1
                 MessageBox.Show("Username already exists. Please choose a different username.");
                 return;
             }
+            if (!usernameRegex.IsMatch(nameoutput))
+            {
+                MessageBox.Show("Username must be between 5 and 20 characters long and contain only letters.");
+                return;
+            }
 
             registration.RegisterUser(nameoutput, passwordoutput);
 
             this.Close();
 
-            Form1 form = new Form1();
-            form.Show();
+            GameStart gameStart = new GameStart();
+            gameStart.Show();
             this.Close();
         }
+
 
         internal void CharacterNameInput_TextChanged(object sender, EventArgs e)
         {
@@ -66,17 +78,20 @@ namespace Flappy_bird1
             tabPage1_Click(sender, e);
         }
 
+
+        //=======================================================================================================
+        //==================================REGISTRATION=========================================================
         class Registration
         {
             private readonly string _filePath = "users.csv";
 
             public void RegisterUser(string username, string password)
             {
-                try
+                try //Try to register user
                 {
-                    if (UserExists(username))
+                    if (UserExists(username)) //Check if user exists
                     {
-                        
+
                         MessageBox.Show("Username already exists. Please choose a different username.");
                         return;
 
@@ -92,12 +107,13 @@ namespace Flappy_bird1
                     MessageBox.Show(ex.Message);
                 }
             }
-
+            //Check if user exists
             internal bool UserExists(string username)
             {
                 return ReadUsersFromCsv().Any(user => user.Username == username);
             }
 
+            //Read users from csv
             public List<User> ReadUsersFromCsv()
             {
                 if (!File.Exists(_filePath))
@@ -112,7 +128,7 @@ namespace Flappy_bird1
                     return csv.GetRecords<User>().ToList();
                 }
             }
-
+            //Write users to csv
             private void WriteUsersToCsv(List<User> users)
             {
                 using (var writer = new StreamWriter(_filePath))
@@ -121,7 +137,7 @@ namespace Flappy_bird1
                     csv.WriteRecords(users);
                 }
             }
-
+            //Create csv file
             private void CreateCsvFile()
             {
                 using (var writer = new StreamWriter(_filePath))
@@ -132,18 +148,32 @@ namespace Flappy_bird1
                 }
             }
         }
-
+        //========================================================================================================
+        //==================================USER==================================================================
         class User
         {
             public string Username { get; set; }
             public string Password { get; set; }
         }
 
+        //=======================================================================================================
+        //==================================Registred user=======================================================
+
+
+        class LoginUser
+        {
+            public string Username { get; set; }
+            public string Score { get; set; }
+        }
+
+        //=======================================================================================================
+        //==================================Login================================================================
         class Login
         {
             private List<User> users = new List<User>();
+            private List<LoginUser> loginUsers = new List<LoginUser>();
             private string filePath = "users.csv";
-
+            //Login user
             public bool LoginUser(string username, string password)
             {
                 if (!File.Exists(filePath))
@@ -164,7 +194,7 @@ namespace Flappy_bird1
                     return false;
                 }
             }
-
+            //Read users from csv
             private List<User> ReadUsersFromCsv()
             {
                 using (var reader = new StreamReader(filePath))
@@ -173,13 +203,25 @@ namespace Flappy_bird1
                     return csv.GetRecords<User>().ToList();
                 }
             }
+
+            
+            public void WriteScoreToCsv(List<LoginUser> loginUsers)
+            {
+                using (var writer = new StreamWriter(filePath))
+                using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+                {
+                    csv.WriteRecords(loginUsers);
+                }
+            }
         }
 
+        
         private void LoginTab_Click(object sender, EventArgs e)
         {
-            RegistrationTab.Enabled = false;
 
         }
+        //=======================================================================================================
+        //==================================Login Button=========================================================
 
         private void button1_Click_1(object sender, EventArgs e)
         {
@@ -200,9 +242,11 @@ namespace Flappy_bird1
             {
                 MessageBox.Show("Invalid username or password.");
             }
-       
-        
+
+
         }
+        //=======================================================================================================
+        //==================================Unused methods=======================================================
 
         private void RegistrationTab_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -219,6 +263,29 @@ namespace Flappy_bird1
         }
         private void tabPage1_Click(object sender, EventArgs e)
         {
+        }
+        //=======================================================================================================
+        //==================================Login Button=========================================================
+
+        private void button1_Click_2(object sender, EventArgs e)//Login butotn
+        {
+            if (string.IsNullOrEmpty(login_name.Text) || string.IsNullOrEmpty(login_pass.Text))
+            {
+                MessageBox.Show("Please enter a username and password.");
+                return;
+            }
+
+            Login login = new Login();
+            if (login.LoginUser(login_name.Text, login_pass.Text))
+            {
+                GameStart gameStart = new GameStart();
+                gameStart.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Invalid username or password.");
+            }
         }
     }
 }
