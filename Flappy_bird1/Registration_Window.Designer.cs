@@ -35,13 +35,16 @@
             this.PasswordLabel = new System.Windows.Forms.Label();
             this.RegistrationTab = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.gobackregister = new System.Windows.Forms.Button();
             this.LoginTab = new System.Windows.Forms.TabPage();
+            this.gobacklogin = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.login_pass = new System.Windows.Forms.TextBox();
             this.login_name = new System.Windows.Forms.TextBox();
             this.userdelete = new System.Windows.Forms.TabPage();
+            this.gobackdelete = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.Deleteuserconfirm = new System.Windows.Forms.Button();
             this.delete_confirm_text_box = new System.Windows.Forms.TextBox();
@@ -54,7 +57,7 @@
             // StartGameReg
             // 
             this.StartGameReg.Font = new System.Drawing.Font("Agency FB", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StartGameReg.Location = new System.Drawing.Point(59, 229);
+            this.StartGameReg.Location = new System.Drawing.Point(59, 193);
             this.StartGameReg.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.StartGameReg.Name = "StartGameReg";
             this.StartGameReg.Size = new System.Drawing.Size(221, 91);
@@ -118,6 +121,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(128)))), ((int)(((byte)(247)))));
+            this.tabPage1.Controls.Add(this.gobackregister);
             this.tabPage1.Controls.Add(this.StartGameReg);
             this.tabPage1.Controls.Add(this.NameLabel);
             this.tabPage1.Controls.Add(this.PasswordLabel);
@@ -132,9 +136,21 @@
             this.tabPage1.Text = "Registration";
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
+            // gobackregister
+            // 
+            this.gobackregister.Font = new System.Drawing.Font("Agency FB", 16.2F, System.Drawing.FontStyle.Bold);
+            this.gobackregister.Location = new System.Drawing.Point(59, 298);
+            this.gobackregister.Name = "gobackregister";
+            this.gobackregister.Size = new System.Drawing.Size(221, 91);
+            this.gobackregister.TabIndex = 6;
+            this.gobackregister.Text = "Go Back";
+            this.gobackregister.UseVisualStyleBackColor = true;
+            this.gobackregister.Click += new System.EventHandler(this.gobackregister_Click);
+            // 
             // LoginTab
             // 
             this.LoginTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(128)))), ((int)(((byte)(247)))));
+            this.LoginTab.Controls.Add(this.gobacklogin);
             this.LoginTab.Controls.Add(this.button1);
             this.LoginTab.Controls.Add(this.label2);
             this.LoginTab.Controls.Add(this.label1);
@@ -149,10 +165,21 @@
             this.LoginTab.Text = "Login";
             this.LoginTab.Click += new System.EventHandler(this.LoginTab_Click);
             // 
+            // gobacklogin
+            // 
+            this.gobacklogin.Font = new System.Drawing.Font("Agency FB", 16.2F, System.Drawing.FontStyle.Bold);
+            this.gobacklogin.Location = new System.Drawing.Point(59, 299);
+            this.gobacklogin.Name = "gobacklogin";
+            this.gobacklogin.Size = new System.Drawing.Size(221, 91);
+            this.gobacklogin.TabIndex = 7;
+            this.gobacklogin.Text = "Go Back";
+            this.gobacklogin.UseVisualStyleBackColor = true;
+            this.gobacklogin.Click += new System.EventHandler(this.gobacklogin_Click);
+            // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Agency FB", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(59, 229);
+            this.button1.Location = new System.Drawing.Point(59, 193);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(221, 91);
@@ -202,6 +229,7 @@
             // userdelete
             // 
             this.userdelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(128)))), ((int)(((byte)(247)))));
+            this.userdelete.Controls.Add(this.gobackdelete);
             this.userdelete.Controls.Add(this.label3);
             this.userdelete.Controls.Add(this.Deleteuserconfirm);
             this.userdelete.Controls.Add(this.delete_confirm_text_box);
@@ -210,6 +238,17 @@
             this.userdelete.Size = new System.Drawing.Size(360, 419);
             this.userdelete.TabIndex = 2;
             this.userdelete.Text = "Delete user";
+            // 
+            // gobackdelete
+            // 
+            this.gobackdelete.Font = new System.Drawing.Font("Agency FB", 16.2F, System.Drawing.FontStyle.Bold);
+            this.gobackdelete.Location = new System.Drawing.Point(59, 289);
+            this.gobackdelete.Name = "gobackdelete";
+            this.gobackdelete.Size = new System.Drawing.Size(221, 91);
+            this.gobackdelete.TabIndex = 8;
+            this.gobackdelete.Text = "Go Back";
+            this.gobackdelete.UseVisualStyleBackColor = true;
+            this.gobackdelete.Click += new System.EventHandler(this.gobackdelete_Click);
             // 
             // label3
             // 
@@ -224,7 +263,7 @@
             // Deleteuserconfirm
             // 
             this.Deleteuserconfirm.Font = new System.Drawing.Font("Agency FB", 16.2F, System.Drawing.FontStyle.Bold);
-            this.Deleteuserconfirm.Location = new System.Drawing.Point(59, 229);
+            this.Deleteuserconfirm.Location = new System.Drawing.Point(59, 192);
             this.Deleteuserconfirm.Name = "Deleteuserconfirm";
             this.Deleteuserconfirm.Size = new System.Drawing.Size(221, 91);
             this.Deleteuserconfirm.TabIndex = 1;
@@ -249,6 +288,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Registration_Window";
             this.Text = "Register your character !";
+            this.Load += new System.EventHandler(this.Registration_Window_Load_1);
             this.RegistrationTab.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -279,5 +319,8 @@
         private System.Windows.Forms.Button Deleteuserconfirm;
         private System.Windows.Forms.TextBox delete_confirm_text_box;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button gobackregister;
+        private System.Windows.Forms.Button gobacklogin;
+        private System.Windows.Forms.Button gobackdelete;
     }
 }

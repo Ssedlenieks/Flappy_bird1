@@ -319,5 +319,33 @@ namespace Flappy_bird1
             
 
         }
+
+        private void Registration_Window_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void gobackdelete_Click(object sender, EventArgs e)
+        {
+            GameStart gameStart = new GameStart();
+            gameStart.Show();
+            this.Close();
+
+        }
+
+        private void gobackregister_Click(object sender, EventArgs e)
+        {
+            GameStart gameStart = new GameStart();
+            gameStart.Show();
+            this.Close();
+        }
+
+        private void gobacklogin_Click(object sender, EventArgs e)
+        {
+            GameStart gameStart = new GameStart();
+            gameStart.Show();
+            this.Close();
+        }
     }
 }
