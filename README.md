@@ -21,7 +21,7 @@ Vispirms ir vajadzīgi lejupielādēt mapi Flappy_bird1 no Github.Com, vai klon�
 ## Spēles noteikumi
 
 1. Lietotājs nospied taustiņu *SPACE*, lai putns lidotu augšā; 
-2. Lietotājam ir j;anospiež taustiņu tādi, lai putns nepieskartos ar caurulēm; 
+2. Lietotājam ir jānospiež taustiņu tādi, lai putns nepieskartos ar caurulēm; 
 3. Pēc katras veiksmīgi izlaistas caurules, *SCORE* vērtība augšējā kreisajā stūrī palielinās par 1 vienību; 
 4. Ja putns pieskaras caurulei, spēle beidzas un lietotājs var izvēlēties vienu no divām pieejamam darbībām logā: 
 
