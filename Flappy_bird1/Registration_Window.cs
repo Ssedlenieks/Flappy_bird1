@@ -147,10 +147,37 @@ namespace Flappy_bird1
                     csv.NextRecord();
                 }
             }
+            public void DeleteUser(string username)
+            {
+                try
+                {
+                    var users = ReadUsersFromCsv();
+                    var userToDelete = users.FirstOrDefault(user => user.Username == username);
+                    if (userToDelete != null)
+                    {
+                        users.Remove(userToDelete);
+                        WriteUsersToCsv(users);
+                        MessageBox.Show("User deleted successfully!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("User not found.");
+                        return;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
-        //========================================================================================================
-        //==================================USER==================================================================
-        class User
+
+
+
+    
+    //========================================================================================================
+    //==================================USER==================================================================
+    class User
         {
             public string Username { get; set; }
             public string Password { get; set; }
@@ -286,6 +313,31 @@ namespace Flappy_bird1
             {
                 MessageBox.Show("Invalid username or password.");
             }
+        }
+
+
+
+        private void Deleteuserconfirm_Click(object sender, EventArgs e)
+        {
+            string usernameToDelete = delete_confirm_text_box.Text;
+            if (string.IsNullOrEmpty(usernameToDelete))
+            {
+                MessageBox.Show("Please enter a username to delete.");
+                return;
+            }
+
+            Registration registration = new Registration();
+            registration.DeleteUser(usernameToDelete);
+
+            GameStart gameStart = new GameStart();
+            gameStart.Show();
+            this.Close();
+        }
+
+        private void delete_confirm_text_box_TextChanged(object sender, EventArgs e)
+        {
+            
+
         }
     }
 }
