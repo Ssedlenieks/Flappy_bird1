@@ -16,9 +16,6 @@ namespace Flappy_bird1
         public string passwordoutput = "";
         Form1 form1;
         string score;
-    
-
-        public List<Player> players = new List<Player>();
 
         Regex sPasswordAllowedRegEx = new Regex(@"^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,30}$", RegexOptions.Compiled);
         Regex usernameRegex = new Regex(@"^[a-zA-Z]{5,20}$");
@@ -28,11 +25,8 @@ namespace Flappy_bird1
             InitializeComponent();
             form1 = new Form1();
             string score = form1.ScoreWhenOver();
-            //CreateCsvFolder();
-            //CreateCsvFile();
         }
-        //=======================================================================================================
-        //==================================REGISTRATION button==================================================
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -78,18 +72,15 @@ namespace Flappy_bird1
             tabPage1_Click(sender, e);
         }
 
-
-        //=======================================================================================================
-        //==================================REGISTRATION=========================================================
         class Registration
         {
             private readonly string _filePath = "users.csv";
 
             public void RegisterUser(string username, string password)
             {
-                try //Try to register user
+                try 
                 {
-                    if (UserExists(username)) //Check if user exists
+                    if (UserExists(username)) 
                     {
 
                         MessageBox.Show("Username already exists. Please choose a different username.");
@@ -107,13 +98,13 @@ namespace Flappy_bird1
                     MessageBox.Show(ex.Message);
                 }
             }
-            //Check if user exists
+            
             internal bool UserExists(string username)
             {
                 return ReadUsersFromCsv().Any(user => user.Username == username);
             }
 
-            //Read users from csv
+            
             public List<User> ReadUsersFromCsv()
             {
                 if (!File.Exists(_filePath))
@@ -128,7 +119,7 @@ namespace Flappy_bird1
                     return csv.GetRecords<User>().ToList();
                 }
             }
-            //Write users to csv
+            
             private void WriteUsersToCsv(List<User> users)
             {
                 using (var writer = new StreamWriter(_filePath))
@@ -137,7 +128,7 @@ namespace Flappy_bird1
                     csv.WriteRecords(users);
                 }
             }
-            //Create csv file
+            
             private void CreateCsvFile()
             {
                 using (var writer = new StreamWriter(_filePath))
@@ -171,21 +162,12 @@ namespace Flappy_bird1
                 }
             }
         }
-
-
-
-    
-    //========================================================================================================
-    //==================================USER==================================================================
+        
     class User
         {
             public string Username { get; set; }
             public string Password { get; set; }
         }
-
-        //=======================================================================================================
-        //==================================Registred user=======================================================
-
 
         class LoginUser
         {
@@ -193,8 +175,6 @@ namespace Flappy_bird1
             public string Score { get; set; }
         }
 
-        //=======================================================================================================
-        //==================================Login================================================================
         class Login
         {
             private List<User> users = new List<User>();

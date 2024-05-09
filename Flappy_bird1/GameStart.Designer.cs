@@ -36,14 +36,15 @@
             this.StartScreen = new System.Windows.Forms.TabPage();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.scoretab = new System.Windows.Forms.TabPage();
+            this.players = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.StartGameTab.SuspendLayout();
             this.StartScreen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.scoretab.SuspendLayout();
+            this.players.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,7 +93,7 @@
             // StartGameTab
             // 
             this.StartGameTab.Controls.Add(this.StartScreen);
-            this.StartGameTab.Controls.Add(this.scoretab);
+            this.StartGameTab.Controls.Add(this.players);
             this.StartGameTab.Location = new System.Drawing.Point(-7, 0);
             this.StartGameTab.Name = "StartGameTab";
             this.StartGameTab.SelectedIndex = 0;
@@ -134,28 +135,37 @@
             this.pictureBox3.TabIndex = 9;
             this.pictureBox3.TabStop = false;
             // 
-            // scoretab
+            // players
             // 
-            this.scoretab.BackColor = System.Drawing.Color.SkyBlue;
-            this.scoretab.Controls.Add(this.dataGridView1);
-            this.scoretab.Location = new System.Drawing.Point(4, 25);
-            this.scoretab.Name = "scoretab";
-            this.scoretab.Padding = new System.Windows.Forms.Padding(3);
-            this.scoretab.Size = new System.Drawing.Size(448, 541);
-            this.scoretab.TabIndex = 1;
-            this.scoretab.Text = "Score";
+            this.players.BackColor = System.Drawing.Color.SkyBlue;
+            this.players.Controls.Add(this.textBox1);
+            this.players.Controls.Add(this.dataGridView1);
+            this.players.Location = new System.Drawing.Point(4, 25);
+            this.players.Name = "players";
+            this.players.Padding = new System.Windows.Forms.Padding(3);
+            this.players.Size = new System.Drawing.Size(448, 541);
+            this.players.TabIndex = 1;
+            this.players.Text = "Players";
             // 
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(128)))), ((int)(((byte)(247)))));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.GridColor = System.Drawing.Color.White;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 24);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(449, 540);
+            this.dataGridView1.Size = new System.Drawing.Size(449, 519);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(0, 0);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(452, 22);
+            this.textBox1.TabIndex = 1;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // GameStart
             // 
@@ -173,7 +183,8 @@
             this.StartScreen.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.scoretab.ResumeLayout(false);
+            this.players.ResumeLayout(false);
+            this.players.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -187,9 +198,10 @@
         private System.Windows.Forms.Button RegisterButton;
         private System.Windows.Forms.TabControl StartGameTab;
         private System.Windows.Forms.TabPage StartScreen;
-        private System.Windows.Forms.TabPage scoretab;
+        private System.Windows.Forms.TabPage players;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

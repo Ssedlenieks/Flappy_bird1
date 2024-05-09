@@ -59,7 +59,7 @@
             this.StartGameReg.Name = "StartGameReg";
             this.StartGameReg.Size = new System.Drawing.Size(221, 91);
             this.StartGameReg.TabIndex = 0;
-            this.StartGameReg.Text = "Start the game";
+            this.StartGameReg.Text = "Register";
             this.StartGameReg.UseVisualStyleBackColor = true;
             this.StartGameReg.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -157,7 +157,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(221, 91);
             this.button1.TabIndex = 6;
-            this.button1.Text = "Start the game";
+            this.button1.Text = "Login";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_2);
             // 
@@ -215,11 +215,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Agency FB", 13.8F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(64, 118);
+            this.label3.Location = new System.Drawing.Point(84, 119);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(85, 28);
+            this.label3.Size = new System.Drawing.Size(54, 28);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Confirm ?";
+            this.label3.Text = "Name";
             // 
             // Deleteuserconfirm
             // 
@@ -228,13 +228,13 @@
             this.Deleteuserconfirm.Name = "Deleteuserconfirm";
             this.Deleteuserconfirm.Size = new System.Drawing.Size(221, 91);
             this.Deleteuserconfirm.TabIndex = 1;
-            this.Deleteuserconfirm.Text = "Delete user";
+            this.Deleteuserconfirm.Text = "Delete ";
             this.Deleteuserconfirm.UseVisualStyleBackColor = true;
             this.Deleteuserconfirm.Click += new System.EventHandler(this.Deleteuserconfirm_Click);
             // 
             // delete_confirm_text_box
             // 
-            this.delete_confirm_text_box.Location = new System.Drawing.Point(171, 126);
+            this.delete_confirm_text_box.Location = new System.Drawing.Point(164, 126);
             this.delete_confirm_text_box.Name = "delete_confirm_text_box";
             this.delete_confirm_text_box.Size = new System.Drawing.Size(100, 22);
             this.delete_confirm_text_box.TabIndex = 0;

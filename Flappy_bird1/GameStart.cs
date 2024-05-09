@@ -17,17 +17,16 @@ namespace Flappy_bird1
 
             DataTable table = new DataTable();
 
-            //table.Columns[0].Add("ID");
+            table.Columns.Add("ID");
             table.Columns.Add("Name");
-            //table.Columns[2].Add("Score");
             try
             {
                 string[] lines = File.ReadAllLines(filePath);
                 for (int x = 1; x < lines.Length; x++)
                 {
-                    string[] columns = lines[x].Split(',');
-                    //table.Rows.Add(Player_ID.ToString());
-                    table.Rows.Add(columns[0]);
+                    string[] columns = lines[x].Split(',');                    
+                    table.Rows.Add(Player_ID, columns[0]);
+                    Player_ID++;
                 }
             }
             catch (Exception ex)
@@ -83,6 +82,29 @@ namespace Flappy_bird1
             this.Hide();
             Registration_Window registration_window = new Registration_Window();
             registration_window.Show();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            string searchValue = textBox1.Text.Trim();
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {               
+                if (!row.IsNewRow)
+                {
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        if (cell.Value != null && cell.Value.ToString().Contains(searchValue))
+                        {
+                            row.Selected = true;
+                            dataGridView1.CurrentCell = cell;
+                            return;
+                        }
+                    }
+                }
+            }
+
+            dataGridView1.ClearSelection();
         }
     }
 }
