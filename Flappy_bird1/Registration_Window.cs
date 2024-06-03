@@ -6,16 +6,18 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 
 namespace Flappy_bird1
 {
     public partial class Registration_Window : Form
     {
+        
         readonly string filePath = "users.csv";
         public string nameoutput = "";
         public string passwordoutput = "";
         Form1 form1;
-        string score;
+     
 
         Regex sPasswordAllowedRegEx = new Regex(@"^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,30}$", RegexOptions.Compiled);
         Regex usernameRegex = new Regex(@"^[a-zA-Z]{5,20}$");
@@ -24,9 +26,9 @@ namespace Flappy_bird1
         {
             InitializeComponent();
             form1 = new Form1();
-            string score = form1.ScoreWhenOver();
+            
         }
-        
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -46,6 +48,11 @@ namespace Flappy_bird1
                 MessageBox.Show("Username must be between 5 and 20 characters long and contain only letters.");
                 return;
             }
+            if (!sPasswordAllowedRegEx.IsMatch(passwordoutput) )
+            {
+                MessageBox.Show("Password must contain atleast 6 letters 1 number and 1 special symbol ");
+                return;
+            }
 
             registration.RegisterUser(nameoutput, passwordoutput);
 
@@ -61,8 +68,12 @@ namespace Flappy_bird1
         {
             nameoutput = this.CharacterNameInput.Text;
         }
+        public string GetCharacterName()
+        {
+            return nameoutput;
+        }
 
-        private void PasswordInput_TextChanged(object sender, EventArgs e)
+        internal void PasswordInput_TextChanged(object sender, EventArgs e)
         {
             passwordoutput = this.PasswordInput.Text;
         }
@@ -78,9 +89,9 @@ namespace Flappy_bird1
 
             public void RegisterUser(string username, string password)
             {
-                try 
+                try
                 {
-                    if (UserExists(username)) 
+                    if (UserExists(username))
                     {
 
                         MessageBox.Show("Username already exists. Please choose a different username.");
@@ -98,13 +109,13 @@ namespace Flappy_bird1
                     MessageBox.Show(ex.Message);
                 }
             }
-            
+
             internal bool UserExists(string username)
             {
                 return ReadUsersFromCsv().Any(user => user.Username == username);
             }
 
-            
+
             public List<User> ReadUsersFromCsv()
             {
                 if (!File.Exists(_filePath))
@@ -119,7 +130,7 @@ namespace Flappy_bird1
                     return csv.GetRecords<User>().ToList();
                 }
             }
-            
+
             private void WriteUsersToCsv(List<User> users)
             {
                 using (var writer = new StreamWriter(_filePath))
@@ -128,7 +139,7 @@ namespace Flappy_bird1
                     csv.WriteRecords(users);
                 }
             }
-            
+
             private void CreateCsvFile()
             {
                 using (var writer = new StreamWriter(_filePath))
@@ -162,8 +173,8 @@ namespace Flappy_bird1
                 }
             }
         }
-        
-    class User
+
+        public class User
         {
             public string Username { get; set; }
             public string Password { get; set; }
@@ -211,7 +222,7 @@ namespace Flappy_bird1
                 }
             }
 
-            
+
             public void WriteScoreToCsv(List<LoginUser> loginUsers)
             {
                 using (var writer = new StreamWriter(filePath))
@@ -222,7 +233,7 @@ namespace Flappy_bird1
             }
         }
 
-        
+
         private void LoginTab_Click(object sender, EventArgs e)
         {
 
@@ -282,6 +293,7 @@ namespace Flappy_bird1
                 return;
             }
 
+
             Login login = new Login();
             if (login.LoginUser(login_name.Text, login_pass.Text))
             {
@@ -316,7 +328,7 @@ namespace Flappy_bird1
 
         private void delete_confirm_text_box_TextChanged(object sender, EventArgs e)
         {
-            
+
 
         }
 
@@ -347,5 +359,11 @@ namespace Flappy_bird1
             gameStart.Show();
             this.Close();
         }
+
+        private void login_pass_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

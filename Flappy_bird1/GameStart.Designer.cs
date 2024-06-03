@@ -34,11 +34,12 @@
             this.RegisterButton = new System.Windows.Forms.Button();
             this.StartGameTab = new System.Windows.Forms.TabControl();
             this.StartScreen = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.players = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.StartGameTab.SuspendLayout();
             this.StartScreen.SuspendLayout();
@@ -78,6 +79,7 @@
             this.label1.Size = new System.Drawing.Size(173, 50);
             this.label1.TabIndex = 5;
             this.label1.Text = "Flappy Bird";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // RegisterButton
             // 
@@ -103,6 +105,7 @@
             // StartScreen
             // 
             this.StartScreen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(128)))), ((int)(((byte)(247)))));
+            this.StartScreen.Controls.Add(this.label2);
             this.StartScreen.Controls.Add(this.label1);
             this.StartScreen.Controls.Add(this.RegisterButton);
             this.StartScreen.Controls.Add(this.GameStartButton);
@@ -116,6 +119,16 @@
             this.StartScreen.Size = new System.Drawing.Size(448, 541);
             this.StartScreen.TabIndex = 0;
             this.StartScreen.Text = "Game Menu";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(33, 482);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 16);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "label2";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // pictureBox2
             // 
@@ -147,6 +160,14 @@
             this.players.TabIndex = 1;
             this.players.Text = "Players";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(0, 0);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(452, 22);
+            this.textBox1.TabIndex = 1;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(128)))), ((int)(((byte)(247)))));
@@ -158,14 +179,6 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(449, 519);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(0, 0);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(452, 22);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // GameStart
             // 
@@ -203,5 +216,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label2;
     }
 }

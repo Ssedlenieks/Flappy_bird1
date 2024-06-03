@@ -1,4 +1,7 @@
-﻿using System;
+﻿using CsvHelper;
+using System;
+using System.Globalization;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Flappy_bird1
@@ -8,6 +11,7 @@ namespace Flappy_bird1
         int pipeSpeed = 8;
         int Gravity = 10;
         bool gameOVER = false;
+        string scoreFilePath = "score.csv";
 
         public Form1()
         {
@@ -26,7 +30,6 @@ namespace Flappy_bird1
 
         private void label1_Click(object sender, EventArgs e)
         {
-
 
         }
 
@@ -61,12 +64,10 @@ namespace Flappy_bird1
             Pipe_lower.Left -= pipeSpeed;
             Pipe_upper.Left -= pipeSpeed;
 
-
             if (Pipe_lower.Left < -130)
             {
                 Pipe_lower.Left = 800;
                 ScoreText.Text = Score.ToString();
-
             }
             if (Pipe_upper.Left < -140)
             {
@@ -75,13 +76,13 @@ namespace Flappy_bird1
                 ScoreText.Text = Score.ToString();
             }
 
-
             if (FlappyBird.Bounds.IntersectsWith(Pipe_lower.Bounds) || FlappyBird.Bounds.IntersectsWith(Pipe_upper.Bounds) || FlappyBird.Bounds.IntersectsWith(Ground.Bounds) || FlappyBird.Top < -25)
             {
                 endGame();
+                SaveScore();
             }
-
         }
+
         public int Score { get; set; }
 
         private void GameKeyDown(object sender, KeyEventArgs e)
@@ -97,34 +98,24 @@ namespace Flappy_bird1
             if (e.KeyCode == Keys.Space)
             {
                 Gravity = 10;
-
             }
             if (gameOVER)
             {
                 RestartGame();
-
             }
-
         }
-        private void endGame()
+
+        public void endGame()
         {
             GameTimer.Stop();
             gameOVER = true;
-            
         }
-        public string ScoreWhenOver()
-        {
-            return Score.ToString();
-        }   
-
-        
 
         public void RestartGame()
         {
             gameOVER = false;
             GameOver gameOver = new GameOver();
             gameOver.Show();
-
             this.Hide();
         }
 
@@ -136,6 +127,16 @@ namespace Flappy_bird1
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void SaveScore()
+        {
+           
+            using (var writer = new StreamWriter(scoreFilePath))
+            using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+            {
+                csv.WriteRecord(Score);
+            }
         }
     }
 }

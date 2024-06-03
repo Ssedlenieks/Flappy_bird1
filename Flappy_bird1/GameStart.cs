@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.IO;
+using System.Reflection.Emit;
 using System.Windows.Forms;
 using static Flappy_bird1.Form1;
 
@@ -9,10 +10,11 @@ namespace Flappy_bird1
 
     public partial class GameStart : Form
     {
+        
         public int Player_ID = 1;
         public void Get_Name() 
         {
-
+     
             string filePath = "users.csv";
 
             DataTable table = new DataTable();
@@ -39,7 +41,7 @@ namespace Flappy_bird1
         public GameStart()
         {
             InitializeComponent();
-            Get_Name();
+            
         }
 
         public void GameStart_Load(object sender, EventArgs e)
@@ -105,6 +107,20 @@ namespace Flappy_bird1
             }
 
             dataGridView1.ClearSelection();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            Registration_Window registrationWindow = new Registration_Window();
+            string myString = "Hello, " + registrationWindow.GetCharacterName() + "!";
+            label2.Text = myString;
+        }
+
+
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

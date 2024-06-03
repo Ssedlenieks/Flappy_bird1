@@ -217,6 +217,7 @@
             this.login_pass.Name = "login_pass";
             this.login_pass.Size = new System.Drawing.Size(100, 22);
             this.login_pass.TabIndex = 1;
+            this.login_pass.TextChanged += new System.EventHandler(this.login_pass_TextChanged_1);
             // 
             // login_name
             // 

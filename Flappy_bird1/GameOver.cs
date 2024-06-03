@@ -34,5 +34,11 @@ namespace Flappy_bird1
             GameStart gameStart = new GameStart();
             gameStart.ShowDialog();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
