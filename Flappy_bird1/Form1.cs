@@ -1,5 +1,6 @@
 ﻿using CsvHelper;
 using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
@@ -11,7 +12,7 @@ namespace Flappy_bird1
         int pipeSpeed = 8;
         int Gravity = 10;
         bool gameOVER = false;
-        string scoreFilePath = "score.csv";
+        
 
         public Form1()
         {
@@ -74,12 +75,12 @@ namespace Flappy_bird1
                 Pipe_upper.Left = 850;
                 Score++;
                 ScoreText.Text = Score.ToString();
+                
             }
 
             if (FlappyBird.Bounds.IntersectsWith(Pipe_lower.Bounds) || FlappyBird.Bounds.IntersectsWith(Pipe_upper.Bounds) || FlappyBird.Bounds.IntersectsWith(Ground.Bounds) || FlappyBird.Top < -25)
             {
                 endGame();
-                SaveScore();
             }
         }
 
@@ -129,14 +130,6 @@ namespace Flappy_bird1
 
         }
 
-        private void SaveScore()
-        {
-           
-            using (var writer = new StreamWriter(scoreFilePath))
-            using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
-            {
-                csv.WriteRecord(Score);
-            }
-        }
+        
     }
 }

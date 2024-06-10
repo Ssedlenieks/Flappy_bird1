@@ -221,16 +221,6 @@ namespace Flappy_bird1
                     return csv.GetRecords<User>().ToList();
                 }
             }
-
-
-            public void WriteScoreToCsv(List<LoginUser> loginUsers)
-            {
-                using (var writer = new StreamWriter(filePath))
-                using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
-                {
-                    csv.WriteRecords(loginUsers);
-                }
-            }
         }
 
 
@@ -299,6 +289,8 @@ namespace Flappy_bird1
             {
                 GameStart gameStart = new GameStart();
                 gameStart.Show();
+                string login_text = "Welcome back, " + login_name.Text + "!";
+                gameStart.SetLabel2(login_text);
                 this.Close();
             }
             else

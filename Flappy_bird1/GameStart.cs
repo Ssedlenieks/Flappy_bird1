@@ -19,9 +19,9 @@ namespace Flappy_bird1
 
             listView1.View = View.Details;
             listView1.Columns.Clear();
-            listView1.Columns.Add("ID", 100, HorizontalAlignment.Left);
-            listView1.Columns.Add("Name", 200, HorizontalAlignment.Left);
-            listView1.Columns.Add("Score", 100, HorizontalAlignment.Left);
+            listView1.Columns.Add("ID", 67, HorizontalAlignment.Left);
+            listView1.Columns.Add("Name", 200, HorizontalAlignment.Center);
+            listView1.Columns.Add("Score", 67, HorizontalAlignment.Right);
             listView1.Items.Clear();
 
             try
@@ -35,7 +35,7 @@ namespace Flappy_bird1
 
                         ListViewItem item = new ListViewItem(Player_ID.ToString());
                         item.SubItems.Add(columns[0]);
-
+                        
                         listView1.Items.Add(item);
 
                         Player_ID++;
@@ -111,9 +111,9 @@ namespace Flappy_bird1
 
         private void GameStartButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
             Form1 gameWindow = new Form1();
             gameWindow.Show();
+            this.Hide();
         }
 
         private void RegisterButton_Click_1(object sender, EventArgs e)
@@ -188,6 +188,16 @@ namespace Flappy_bird1
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        public void label2_Click(object sender, EventArgs e)
+        {
+             
+        }
+
+        public void SetLabel2(string text)
+        {
+            label2.Text = text;
         }
     }
 }
