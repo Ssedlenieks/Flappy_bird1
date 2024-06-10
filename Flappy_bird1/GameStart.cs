@@ -1,48 +1,85 @@
 ﻿using System;
-using System.Data;
+using System.Collections;
+using System.Drawing;
 using System.IO;
-using System.Reflection.Emit;
 using System.Windows.Forms;
-using static Flappy_bird1.Form1;
 
 namespace Flappy_bird1
 {
-
     public partial class GameStart : Form
     {
         
         public int Player_ID = 1;
+        private ListViewColumnSorter lvwColumnSorter;
+
         public void Get_Name() 
         {
      
             string filePath = "users.csv";
 
-            DataTable table = new DataTable();
+            listView1.View = View.Details;
+            listView1.Columns.Clear();
+            listView1.Columns.Add("ID", 100, HorizontalAlignment.Left);
+            listView1.Columns.Add("Name", 200, HorizontalAlignment.Left);
+            listView1.Columns.Add("Score", 100, HorizontalAlignment.Left);
+            listView1.Items.Clear();
 
-            table.Columns.Add("ID");
-            table.Columns.Add("Name");
             try
             {
-                string[] lines = File.ReadAllLines(filePath);
-                for (int x = 1; x < lines.Length; x++)
+                if (File.Exists(filePath))
                 {
-                    string[] columns = lines[x].Split(',');                    
-                    table.Rows.Add(Player_ID, columns[0]);
-                    Player_ID++;
+                    string[] lines = File.ReadAllLines(filePath);
+                    for (int x = 1; x < lines.Length; x++)
+                    {
+                        string[] columns = lines[x].Split(',');
+
+                        ListViewItem item = new ListViewItem(Player_ID.ToString());
+                        item.SubItems.Add(columns[0]);
+
+                        listView1.Items.Add(item);
+
+                        Player_ID++;
+                    }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error while reading file: " + ex.Message);
             }
-            dataGridView1.DataSource = table;
         }
 
         public GameStart()
         {
             InitializeComponent();
-            
+            Get_Name(); 
+
+            lvwColumnSorter = new ListViewColumnSorter();
+            listView1.ListViewItemSorter = lvwColumnSorter;
+            listView1.ColumnClick += new ColumnClickEventHandler(ClickCol);
         }
+
+        private void ClickCol(object o, ColumnClickEventArgs e)
+        {
+            if (e.Column == lvwColumnSorter.SortColumn)
+            {
+                if (lvwColumnSorter.Order == SortOrder.Ascending)
+                {
+                    lvwColumnSorter.Order = SortOrder.Descending;
+                }
+                else
+                {
+                    lvwColumnSorter.Order = SortOrder.Ascending;
+                }
+            }
+            else
+            {
+                lvwColumnSorter.SortColumn = e.Column;
+                lvwColumnSorter.Order = SortOrder.Ascending;
+            }
+
+            listView1.Sort();
+        }
+
 
         public void GameStart_Load(object sender, EventArgs e)
         {
@@ -88,37 +125,67 @@ namespace Flappy_bird1
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            string searchValue = textBox1.Text.Trim();
+            string searchText = textBox1.Text;
 
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {               
-                if (!row.IsNewRow)
+            foreach (ListViewItem item in listView1.Items) 
+            {
+                foreach (ListViewItem.ListViewSubItem subItem in item.SubItems) 
                 {
-                    foreach (DataGridViewCell cell in row.Cells)
+                    if (subItem.Text.Contains(searchText) && !string.IsNullOrEmpty(searchText) && searchText == subItem.Text)
                     {
-                        if (cell.Value != null && cell.Value.ToString().Contains(searchValue))
-                        {
-                            row.Selected = true;
-                            dataGridView1.CurrentCell = cell;
-                            return;
-                        }
+                        item.EnsureVisible();
+                        item.BackColor = Color.LightGray;
+                    }
+                    else
+                    {
+                        item.BackColor = Color.White;
                     }
                 }
             }
-
-            dataGridView1.ClearSelection();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        public class ListViewColumnSorter : IComparer
         {
-            Registration_Window registrationWindow = new Registration_Window();
-            string myString = "Hello, " + registrationWindow.GetCharacterName() + "!";
-            label2.Text = myString;
+            public int SortColumn { get; set; }
+            public SortOrder Order { get; set; }
+
+            private CaseInsensitiveComparer ObjectCompare;
+
+            public ListViewColumnSorter()
+            {
+                SortColumn = 0;
+                Order = SortOrder.None;
+                ObjectCompare = new CaseInsensitiveComparer();
+            }
+
+            public int Compare(object x, object y)
+            {
+                int compareResult;
+                ListViewItem listviewX = (ListViewItem)x;
+                ListViewItem listviewY = (ListViewItem)y;
+
+                compareResult = ObjectCompare.Compare(listviewX.SubItems[SortColumn].Text, listviewY.SubItems[SortColumn].Text);
+
+                if (Order == SortOrder.Ascending)
+                {
+                    return compareResult;
+                }
+                else if (Order == SortOrder.Descending)
+                {
+                    return (-compareResult);
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+        }
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
 
-
-
-        private void label1_Click(object sender, EventArgs e)
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

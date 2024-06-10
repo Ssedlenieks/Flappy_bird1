@@ -34,19 +34,17 @@
             this.RegisterButton = new System.Windows.Forms.Button();
             this.StartGameTab = new System.Windows.Forms.TabControl();
             this.StartScreen = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.players = new System.Windows.Forms.TabPage();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.listView1 = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.StartGameTab.SuspendLayout();
             this.StartScreen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.players.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // GameStartButton
@@ -105,7 +103,6 @@
             // StartScreen
             // 
             this.StartScreen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(128)))), ((int)(((byte)(247)))));
-            this.StartScreen.Controls.Add(this.label2);
             this.StartScreen.Controls.Add(this.label1);
             this.StartScreen.Controls.Add(this.RegisterButton);
             this.StartScreen.Controls.Add(this.GameStartButton);
@@ -119,16 +116,6 @@
             this.StartScreen.Size = new System.Drawing.Size(448, 541);
             this.StartScreen.TabIndex = 0;
             this.StartScreen.Text = "Game Menu";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(33, 482);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 16);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "label2";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // pictureBox2
             // 
@@ -151,8 +138,8 @@
             // players
             // 
             this.players.BackColor = System.Drawing.Color.SkyBlue;
+            this.players.Controls.Add(this.listView1);
             this.players.Controls.Add(this.textBox1);
-            this.players.Controls.Add(this.dataGridView1);
             this.players.Location = new System.Drawing.Point(4, 25);
             this.players.Name = "players";
             this.players.Padding = new System.Windows.Forms.Padding(3);
@@ -168,17 +155,15 @@
             this.textBox1.TabIndex = 1;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // dataGridView1
+            // listView1
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(128)))), ((int)(((byte)(247)))));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.GridColor = System.Drawing.Color.White;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 24);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(449, 519);
-            this.dataGridView1.TabIndex = 0;
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(-4, 28);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(460, 534);
+            this.listView1.TabIndex = 2;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // GameStart
             // 
@@ -198,7 +183,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.players.ResumeLayout(false);
             this.players.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -212,10 +196,9 @@
         private System.Windows.Forms.TabControl StartGameTab;
         private System.Windows.Forms.TabPage StartScreen;
         private System.Windows.Forms.TabPage players;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ListView listView1;
     }
 }
